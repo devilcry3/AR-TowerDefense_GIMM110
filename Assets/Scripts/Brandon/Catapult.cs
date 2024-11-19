@@ -24,19 +24,8 @@ public class Catapult : MonoBehaviour
         {
 
             lob.Launch();
-
-
-
         }
     }
 
-    public void CannonBall()
-    {
-
-        spawnPosition = ballSpawn.transform.position; // determines the spawnPosition based on BulletSpawn object location
-        Instantiate(ball, spawnPosition, spawnRotation); //creates and "instantiates" the bullet in world
-        Debug.Log("Fire");
-       
-
-    }
+    
 }

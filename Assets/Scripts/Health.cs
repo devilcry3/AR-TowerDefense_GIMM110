@@ -13,14 +13,17 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject gameOver;
     [SerializeField] int maxHealth = 100;
     [SerializeField] Slider healthSlider;
-    [SerializeField] GameObject[] objectsToDisable; // Array of objects to disable when the object dies
-
-
+    [SerializeField] List<GameObject> objectsToDisable = new List<GameObject>(); // Array of objects to disable when the object dies
 
     /* In C# if you do not specify a variable modifier (i.e. public, private, protected), it defaults to private
     The private variable modifier stops other scripts from accessing those variables */
     public int currentHealth;
     #endregion // Marks the end of the region
+
+    private void Update()
+    {
+        ListClear();
+    }
 
     #region Unity Methods
     // Start is called before the first frame update
@@ -55,6 +58,7 @@ public class Health : MonoBehaviour
         // If the health is less than or equal to 0, call the Die method
         if (currentHealth <= 0)
         {
+            objectsToDisable.Add(gameObject);
             Die();
         }
     }
@@ -69,7 +73,7 @@ public class Health : MonoBehaviour
         // Disables all objects in the objectsToDisable array
         foreach (GameObject obj in objectsToDisable)
         {
-            obj.SetActive(false);
+           Destroy(gameObject);
         }
 
 
@@ -80,7 +84,11 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
 
+   void ListClear()
+    {
+        objectsToDisable.RemoveAll(item => item == null);
     }
     #endregion
 }

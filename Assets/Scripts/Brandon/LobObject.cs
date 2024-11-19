@@ -7,20 +7,22 @@ public class LobObject : MonoBehaviour
 
 {
     Catapult cat;
-   // public GameObject ballSpawn;
+    AOE areaEffect;
+    Health health;
     public GameObject ball;
     //Vector2 spawnPosition;
     Quaternion spawnRotation = Quaternion.identity;
 
     public Rigidbody2D rb;
-
-    public float lobForce = 5f; // Adjust for desired throw strength
-
+    public float lobForce = 5f; // Adjust for desired throw strengt
     public float launchAngle = 45f; // Adjust for desired lob arc
+    [SerializeField] int damage = 15;
 
     private void Start()
     {
         cat = FindObjectOfType<Catapult>();
+        areaEffect = FindObjectOfType<AOE>();
+        health = FindObjectOfType<Health>();
     }
 
 
@@ -32,9 +34,9 @@ public class LobObject : MonoBehaviour
 
     public void Launch()
     {
-        // spawnPosition = ballSpawn.transform.position; // determines the spawnPosition based on BulletSpawn object location
+       
         GameObject newObject = Instantiate(ball, cat.transform.position, Quaternion.identity);
-       // Instantiate(ball, cat.spawnPosition, spawnRotation); //creates and "instantiates" the bullet in world
+        //creates and "instantiates" the bullet in world
         // Get the Rigidbody2D of the new object
         Rigidbody2D rb = newObject.GetComponent<Rigidbody2D>();
 
@@ -46,22 +48,53 @@ public class LobObject : MonoBehaviour
 
             float yForce = Mathf.Sin(radians) * lobForce;
 
-            rb.AddForce(new Vector2(xForce, yForce), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(xForce, yForce), ForceMode2D.Impulse); //Impulse adds the force in a single pulse of force instead of continous
             Debug.Log("Fire");
-            }
-       
-       
+
+            /*
+         * This code is calculating the horizontal (xForce) and vertical (yForce) components 
+         * of a force vector for a projectile, given a launch angle (in degrees) and a lob
+         * force (the magnitude of the total force).
+         */
+        }
+
+
     }
 
-    void Force()
+   
+
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        float radians = Mathf.Deg2Rad * launchAngle;
+        if(other.gameObject.tag == "Detonator" )
+        {
+            Destroy(gameObject);
+            Explosion();
+           
+        }
+        
+    }
 
-        float xForce = Mathf.Cos(radians) * lobForce;
+    void Explosion ()
+    {
+        foreach (GameObject target in areaEffect.enemyList)
+        {
+            if (target != null) // Check if the GameObject exists
+            {
+                // Get the HealthComponent (or equivalent script) on the GameObject
+                Health health = target.GetComponent<Health>();
 
-        float yForce = Mathf.Sin(radians) * lobForce;
-
-        rb.AddForce(new Vector2(xForce, yForce), ForceMode2D.Impulse);
+                if (health != null)
+                {
+                    // Call the TakeDamage method to apply damage
+                    health.TakeDamage(damage);
+                }
+                else
+                {
+                    Debug.LogWarning($"GameObject {target.name} does not have a HealthComponent!");
+                }
+            }
+        }
     }
 
 }
