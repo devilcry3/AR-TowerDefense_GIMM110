@@ -40,7 +40,7 @@ public class WizTower_Cast : MonoBehaviour
 
     Transform FindClosestEnemy()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Skeleton");
         Transform closestEnemy = null;
         float shortestDistance = Mathf.Infinity;
 

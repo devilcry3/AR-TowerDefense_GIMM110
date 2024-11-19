@@ -45,13 +45,13 @@ public class Fireball_Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Skeleton"))
         {
             //Damage enemy
-            TempSkeleHealth enemy = other.GetComponent<TempSkeleHealth>(); // need to change this line to work with Health Script
-            if (enemy != null)
+            Health enemyHealth = other.GetComponent<Health>(); 
+            if (enemyHealth != null)
             {
-                enemy.TakeDamage(damage);
+                enemyHealth.TakeDamage(damage);
             }
 
             Destroy(gameObject); //Destroy fireball on impact

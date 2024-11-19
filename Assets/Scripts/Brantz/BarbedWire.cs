@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BarbedWire : MonoBehaviour
 {
-    //To be placed in Enemy movement script
+    //To be placed in Enemy movement script...DO NOT ATTACH TO ANYTHING!!
 
     private bool isInWire = false;
     [SerializeField] private float wireSlowFactor = 0.5f; // How much slower the movement is while in wire
