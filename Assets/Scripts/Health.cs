@@ -80,7 +80,7 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
         }
 
-        else if (gameObject.tag == "Skeleton")
+        else if (gameObject.tag == "Undead")
         {
             Destroy(gameObject);
         }
