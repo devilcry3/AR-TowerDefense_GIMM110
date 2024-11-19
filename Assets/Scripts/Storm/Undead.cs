@@ -45,7 +45,7 @@ public class Undead : MonoBehaviour
     private void AttackEnemy()
     {
         // Casts a ray to check if an enemy is in range, utilizes the player or enemy layer to determine if a unit or base is nearby
-        RaycastHit2D enemyCheck = Physics2D.Raycast(transform.position, transform.right, attackRange, enemyLayer);
+        RaycastHit2D enemyCheck = Physics2D.Raycast(transform.position, transform.up, attackRange, enemyLayer);
 
         // If there is no enemy in range, set the Attack parameter to false and exit the method
         if (enemyCheck.collider == null)
@@ -110,6 +110,18 @@ public class Undead : MonoBehaviour
 
         enemyHealth.TakeDamage(attackDamage); // Calls the TakeDamage method from the Health script
     }
+
+    private void OnDrawGizmos() // Gizmos create a visual element, but it can only be viewed in the scene viewwer but not in the builder or any builds
+    {
+        // If the animator is null, exit the method
+        if (anim == null)
+            return;
+
+        Gizmos.color = anim.GetBool("Attack") ? Color.green : Color.red; // Sets the gizmo color based on the Attack parameter
+
+        Gizmos.DrawRay(transform.position, transform.up * attackRange); // Draws a ray in the direction of the attack range
+    }
+
     #endregion
 }
 
