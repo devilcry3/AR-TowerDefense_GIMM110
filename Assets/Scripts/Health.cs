@@ -29,6 +29,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        //Comment out this next line for testing Repair Towers
         currentHealth = maxHealth; // Sets the current health to the max health
 
         // If the health slider is not null, set the max value and current value
@@ -90,5 +91,17 @@ public class Health : MonoBehaviour
     {
         objectsToDisable.RemoveAll(item => item == null);
     }
+
+    // Added to make repair towers work. -Steph
+    public void RestoreAllHealth()
+    {
+        Debug.Log("Restoring health to: " + maxHealth);
+        currentHealth = maxHealth;
+        if (healthSlider != null)
+        {
+            healthSlider.value = currentHealth; // Update the slider
+        }
+    }
+
     #endregion
 }
