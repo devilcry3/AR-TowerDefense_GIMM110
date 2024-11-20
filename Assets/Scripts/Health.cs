@@ -26,7 +26,8 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        //currentHealth = maxHealth; // Sets the current health to the max health
+        //Comment out this next line for testing Repair Towers
+        currentHealth = maxHealth; // Sets the current health to the max health
 
         // If the health slider is not null, set the max value and current value
         if (healthSlider != null)
