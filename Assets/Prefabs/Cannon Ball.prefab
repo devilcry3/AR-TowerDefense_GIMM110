@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,11 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b554f91b0f5598438576831d0e3cf96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpawn: {fileID: 0}
   ball: {fileID: 4866192926059931739}
   rb: {fileID: 4788978292079460643}
   lobForce: 10
   launchAngle: 90
+  damage: 15
 --- !u!50 &4788978292079460643
 Rigidbody2D:
   serializedVersion: 4
