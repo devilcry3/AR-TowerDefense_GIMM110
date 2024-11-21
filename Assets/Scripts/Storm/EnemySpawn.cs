@@ -10,8 +10,6 @@ public class EnemySpawn : MonoBehaviour
     // Static variables are shared across all instances of a class
     public static EnemySpawn Instance { get; private set; } // Singleton pattern that allows you to access the EnemySpawn instance from other scripts
 
-    public bool isMethodCalled = false; //flags to track if a method was called or not
-
     // Headers are like titles for the Unity Inspector.
     [Header("Enemy Spawns")]
     [SerializeField] GameObject[] enemyUndead = new GameObject[3];
@@ -19,6 +17,7 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] float timeToSpawn = 4f; // Time in seconds to spawn an enemy
     [SerializeField] int maxEnemies = 10; // Maximum number of enemies that can be spawned
     [SerializeField] int wave = 1; //Indicates wave
+    public Transform[] waypoints;
 
     // HideInInspector hides the variable from the inspector, but allows other scripts to access it if needed
     [HideInInspector] public int unitCounter = 0; // Counter for the number of enemies spawned
@@ -49,9 +48,11 @@ public class EnemySpawn : MonoBehaviour
                 break;
             case 2:
                 maxEnemies = 20;
+                timeToSpawn = 2.5f;
                 StartCoroutine(SpawnWave2());
                 break;
             case 3:
+                maxEnemies += 20;
                 StartCoroutine(SpawnWave3());
                 break;
             default:
@@ -77,9 +78,10 @@ public class EnemySpawn : MonoBehaviour
         {
             if (unitCounter < maxEnemies)
             {
+                
                 // Spawns an enemy undead at the enemy spawn position
                 GameObject spawnedEnemy = Instantiate(enemyUndead[0], enemySpawnPos.transform.position, Quaternion.identity, enemySpawnPos.transform);
-                spawnedEnemy.transform.Rotate(0, 180, 0); // Rotates the enemy to face the user
+                spawnedEnemy.transform.Rotate(0, 0, 180); // Rotates the enemy to face the user
                 unitCounter++;
             }
 
@@ -95,7 +97,7 @@ public class EnemySpawn : MonoBehaviour
             {
                 // Spawns an enemy undead at the enemy spawn position
                 GameObject spawnedEnemy = Instantiate(enemyUndead[1], enemySpawnPos.transform.position, Quaternion.identity, enemySpawnPos.transform);
-                spawnedEnemy.transform.Rotate(0, 180, 0); // Rotates the enemy to face the user
+                spawnedEnemy.transform.Rotate(0, 0, 180); // Rotates the enemy to face the user
                 unitCounter++;
             }
 
@@ -112,8 +114,9 @@ public class EnemySpawn : MonoBehaviour
                 // Spawns an enemy undead at the enemy spawn position
                 GameObject spawnedEnemy1 = Instantiate(enemyUndead[1], enemySpawnPos.transform.position, Quaternion.identity, enemySpawnPos.transform);
                 GameObject spawnedEnemy2 = Instantiate(enemyUndead[2], enemySpawnPos.transform.position, Quaternion.identity, enemySpawnPos.transform);
-                spawnedEnemy1.transform.Rotate(0, 180, 0); // Rotates the enemy to face the user
-                spawnedEnemy1.transform.Rotate(0, 180, 0);
+                spawnedEnemy1.transform.Rotate(0, 0, 180); // Rotates the enemy to face the user
+                spawnedEnemy1.transform.Rotate(0, 0, 180);
+                unitCounter++;
                 unitCounter++;
             }
 

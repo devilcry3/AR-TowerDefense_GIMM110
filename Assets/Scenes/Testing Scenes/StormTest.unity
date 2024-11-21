@@ -1747,7 +1747,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69be8d76c74d7e408ec2da8a14819fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMethodCalled: 0
   enemyUndead:
   - {fileID: 5656707613476603268, guid: 45b79ebf12a59984295e80964a93c0ef, type: 3}
   - {fileID: 2128170315080252329, guid: 3137452ab4985534799df24293631993, type: 3}
@@ -1756,6 +1755,23 @@ MonoBehaviour:
   timeToSpawn: 4
   maxEnemies: 10
   wave: 1
+  waypoints:
+  - {fileID: 1728778607}
+  - {fileID: 823838322}
+  - {fileID: 2122638104}
+  - {fileID: 974788231}
+  - {fileID: 1693861419}
+  - {fileID: 860849118}
+  - {fileID: 261716091}
+  - {fileID: 2126778077}
+  - {fileID: 1783080228}
+  - {fileID: 1508683973}
+  - {fileID: 1497697580}
+  - {fileID: 1822363927}
+  - {fileID: 1680537165}
+  - {fileID: 450060121}
+  - {fileID: 1578991185}
+  - {fileID: 1078533770}
   unitCounter: 0
 --- !u!1 &2126778076
 GameObject:
@@ -1928,11 +1944,11 @@ PrefabInstance:
       objectReference: {fileID: 1078533770}
     - target: {fileID: 3856621649213460105, guid: 45b79ebf12a59984295e80964a93c0ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.07
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3856621649213460105, guid: 45b79ebf12a59984295e80964a93c0ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: -1.24
       objectReference: {fileID: 0}
     - target: {fileID: 3856621649213460105, guid: 45b79ebf12a59984295e80964a93c0ef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1969,6 +1985,10 @@ PrefabInstance:
     - target: {fileID: 5656707613476603268, guid: 45b79ebf12a59984295e80964a93c0ef, type: 3}
       propertyPath: m_Name
       value: Undead
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656707613476603268, guid: 45b79ebf12a59984295e80964a93c0ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

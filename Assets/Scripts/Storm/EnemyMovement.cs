@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     // Array of waypoints to walk from one to the next one
     [SerializeField]
     private Transform[] waypoints;
+    EnemySpawn spawn;
 
     // Walk speed that can be set in Inspector
     [SerializeField]
@@ -20,7 +21,14 @@ public class EnemyMovement : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+        spawn = GetComponent<EnemySpawn>();
+        //waypoints = spawn.waypoints;
         // Initialize targetPosition to the position of the first waypoint
+        if (EnemySpawn.Instance != null && EnemySpawn.Instance.waypoints.Length > 0)
+        {
+            waypoints = EnemySpawn.Instance.waypoints;
+            targetPosition = waypoints[waypointIndex].position;
+        }
         if (waypoints.Length > 0)
         {
             targetPosition = waypoints[waypointIndex].position;
@@ -29,6 +37,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+       
         // Update the target position to match the current waypoint
         if (waypoints.Length > 0 && waypointIndex < waypoints.Length)
         {
