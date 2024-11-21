@@ -13,13 +13,12 @@ GameObject:
   - component: {fileID: 317331612656363631}
   - component: {fileID: 135469807995602244}
   - component: {fileID: 2874899577179166531}
-  - component: {fileID: 7685595254354906575}
   - component: {fileID: 7224616523029680866}
   - component: {fileID: 8029302796739310596}
-  - component: {fileID: 7269620054926552401}
+  - component: {fileID: 6612638427020919335}
   m_Layer: 0
   m_Name: Undead
-  m_TagString: Untagged
+  m_TagString: Undead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,6 +120,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  moveSpeed: 2
 --- !u!61 &135469807995602244
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -183,24 +183,6 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   objectsToDisable: []
   currentHealth: 0
---- !u!114 &7685595254354906575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5656707613476603268}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93d4854459df0e341a6e76a33a84423a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  attackRange: 1
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  attackDamage: 10
 --- !u!95 &7224616523029680866
 Animator:
   serializedVersion: 5
@@ -249,7 +231,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7269620054926552401
+--- !u!114 &6612638427020919335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -258,8 +240,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5656707613476603268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92f6576655d086d4e8ccfd97fb2fc1f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b681646dce0a86499aec0639a661bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
-  damageRate: 1
+  damagePerSecond: 1
