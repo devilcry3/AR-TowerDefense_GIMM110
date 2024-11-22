@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 19481086}
   - component: {fileID: 19481085}
   - component: {fileID: 19481084}
-  - component: {fileID: 19481083}
+  - component: {fileID: 19481087}
   m_Layer: 0
   m_Name: ImageTarget
   m_TagString: Untagged
@@ -142,25 +142,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &19481083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19481082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 19481085}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: queen_of_spadesgrayscale
-  mDatasetName: Vuforia/Image_target.xml
-  mCastedBehaviour: {fileID: 19481085}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
 --- !u!114 &19481084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StatusFilter: 1
+  StatusFilter: 0
   UsePoseSmoothing: 0
   AnimationCurve:
     serializedVersion: 2
@@ -231,7 +212,7 @@ MonoBehaviour:
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 19481083}
+  mPreview: {fileID: 19481087}
 --- !u!4 &19481086
 Transform:
   m_ObjectHideFlags: 0
@@ -248,6 +229,25 @@ Transform:
   - {fileID: 1259601779}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &19481087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19481082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 19481085}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: queen_of_spadesgrayscale
+  mDatasetName: Vuforia/Image_target.xml
+  mCastedBehaviour: {fileID: 19481085}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1 &346667244
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +260,8 @@ GameObject:
   - component: {fileID: 346667248}
   - component: {fileID: 346667247}
   - component: {fileID: 346667250}
+  - component: {fileID: 346667252}
+  - component: {fileID: 346667251}
   m_Layer: 0
   m_Name: ARCamera
   m_TagString: MainCamera
@@ -353,6 +355,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cceb4c41ecbdf0e43aaf068dd9445886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &346667251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346667244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47f92041efbb4b429a4eafca855ebe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &346667252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346667244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1826476478, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mWorldCenterMode: 2
+  mWorldCenter: {fileID: 0}
 --- !u!1 &458034452
 GameObject:
   m_ObjectHideFlags: 0
