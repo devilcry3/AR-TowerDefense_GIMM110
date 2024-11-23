@@ -11,6 +11,9 @@ public class Requisition : MonoBehaviour
     [SerializeField] GameObject WarpCircle;
     [SerializeField] float warpDuration = 3f;
 
+    [SerializeField] float freezeDuration = 10f;
+    private bool isFreezing = false;
+
     public void DeployWire()
     {
         if (!BarbedWire.activeInHierarchy)
@@ -46,6 +49,23 @@ public class Requisition : MonoBehaviour
 
         WarpCircle.SetActive(true);
 
+    }
+
+    public void DeployFreeze()
+    {
+        if (!isFreezing)
+        {
+            StartCoroutine(FreezeAllEnenmies());
+        }
+    }
+
+    private IEnumerator FreezeAllEnenmies()
+    {
+        isFreezing = true;
+
+        yield return new WaitForSeconds(freezeDuration);
+
+        isFreezing = false;
     }
 
 }
