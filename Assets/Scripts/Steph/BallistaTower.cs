@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -10,10 +11,13 @@ public class BallistaTower : MonoBehaviour
     [SerializeField] private Transform firePoint; // Point from which the spear will be fired
     [SerializeField] private float spearSpeed = 10f; // Speed of the spear
     [SerializeField] private int spearDamage = 10; // Spear damage
+    Quaternion spearRotation;
 
     private void Start()
     {
         StartCoroutine(FireSpearRoutine());
+        spearRotation = spearPrefab.transform.rotation;
+        
     }
 
     private IEnumerator FireSpearRoutine()
@@ -28,7 +32,7 @@ public class BallistaTower : MonoBehaviour
     private void FireSpear()
     {
         // Instantiate spear at the fire point
-        GameObject spear = Instantiate(spearPrefab, firePoint.position, Quaternion.identity);
+        GameObject spear = Instantiate(spearPrefab, firePoint.position, spearRotation);
 
         // Calculate firing direction based on the specified angle
         Vector3 firingDirection = Quaternion.Euler(0, 0, fireAngle) * Vector3.right;

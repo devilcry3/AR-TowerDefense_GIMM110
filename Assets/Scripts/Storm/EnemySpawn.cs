@@ -12,7 +12,7 @@ public class EnemySpawn : MonoBehaviour
 
     // Headers are like titles for the Unity Inspector.
     [Header("Enemy Spawns")]
-    [SerializeField] GameObject[] enemyUndead = new GameObject[3];
+    public static GameObject[] enemyUndead = new GameObject[3];
     [SerializeField] GameObject enemySpawnPos;
     [SerializeField] float timeToSpawn = 4f; // Time in seconds to spawn an enemy
     [SerializeField] int maxEnemies = 10; // Maximum number of enemies that can be spawned

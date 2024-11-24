@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="acehears" size="1.000000 1.409006" />
+    <ImageTarget name="queen_of_spades_grayscale" size="1.000000 1.453125" />
+    <ImageTarget name="jack-of-diamonds" size="1.000000 1.449275" />
     <ImageTarget name="kingofclubs" size="1.000000 1.350993" />
   </Tracking>
 </QCARConfig>

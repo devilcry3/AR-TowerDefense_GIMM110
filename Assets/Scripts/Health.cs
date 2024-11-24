@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     // Headers are like titles for the Unity Inspector.
     [Header("Health Settings")]
     // SerializeField allows you to see private variables in the inspector while keeping them private
+    RequisitionPoint rp; 
     [SerializeField] GameObject gameOver;
     [SerializeField] int maxHealth = 100;
     [SerializeField] Slider healthSlider;
@@ -60,6 +61,8 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             objectsToDisable.Add(gameObject);
+            if (gameObject == EnemySpawn.enemyUndead[0])
+            { }
             Die();
         }
     }
