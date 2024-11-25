@@ -7,16 +7,17 @@ TagManager:
   - Wire
   - Skeleton
   - Undead
-  - Player Base
+  - AOE
+  - Detonator
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Background
   - Water
   - UI
-  - 
-  - 
+  - MainCam
+  - ARCam
   - 
   - 
   - 
