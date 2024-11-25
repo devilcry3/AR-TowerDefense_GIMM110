@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rotate : MonoBehaviour 
 {
-    [SerializeField] private float speed = 1f; 
+    [SerializeField] private float speed = 1f; // speed of rotation
     [SerializeField] private int damage = 3; // Damage dealt to enemies
     [SerializeField] private float damageInterval = 0.5f; // Time between consecutive damage to the same enemy
 
@@ -18,22 +18,26 @@ public class Rotate : MonoBehaviour
         // Check if the object is an enemy
         if (other.CompareTag("Enemy"))
         {
-            EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
+            Health Health = other.GetComponent<Health>();
+            if (Health != null)
             {
                 // Apply damage and start periodic damage
-                enemyHealth.TakeDamage(damage);
-                StartCoroutine(ApplyPeriodicDamage(enemyHealth));
+                Health.TakeDamage(damage);
+                StartCoroutine(ApplyPeriodicDamage(Health));
             }
         }
     }
 
-    private IEnumerator ApplyPeriodicDamage(EnemyHealth enemyHealth)
+    private IEnumerator ApplyPeriodicDamage(Health Health)
     {
-        while (enemyHealth != null && enemyHealth.IsAlive)
+<<<<<<< Updated upstream
+        while (Health != null && Health.currentHealth > 0)
+=======
+        while (Health != null && Health.IsAlive)
+>>>>>>> Stashed changes
         {
             yield return new WaitForSeconds(damageInterval);
-            enemyHealth.TakeDamage(damage);
+            Health.TakeDamage(damage);
         }
     }
 }

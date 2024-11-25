@@ -4,26 +4,33 @@ using UnityEngine;
 
 public class FreezeEnemies : MonoBehaviour
 {
+
     [SerializeField] private float freezeDuration = 10f; // Duration of the freeze in seconds
-    [SerializeField] private int cost = 5; // Cost in coins to activate the freeze
+    //[SerializeField] private int cost = 5; // Cost in coins to activate the freeze
+<<<<<<< Updated upstream
+    [SerializeField] private LayerMask enemy; // Layer of enemies to be frozen
+=======
     [SerializeField] private LayerMask enemyLayer; // Layer of enemies to be frozen
-    [SerializeField] private Player player; // Reference to the player script managing coins
+>>>>>>> Stashed changes
 
     private bool isFreezing = false;
 
     void Update()
-    {
+   {
         // Check if the player presses the freeze key and has enough coins
-        if (Input.GetKeyDown(KeyCode.F) && player.Coins >= cost && !isFreezing)
+        if (Input.GetKeyDown(KeyCode.Space) && !isFreezing)
         {
-            StartCoroutine(FreezeAllEnemies());
+           StartCoroutine(FreezeAllEnemies());
         }
     }
 
     private IEnumerator FreezeAllEnemies()
     {
+<<<<<<< Updated upstream
+=======
         // Deduct the cost
-        player.SpendCoins(cost);
+        //player.SpendCoins(cost);
+>>>>>>> Stashed changes
 
         isFreezing = true;
 
