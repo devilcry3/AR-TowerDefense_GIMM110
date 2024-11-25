@@ -44,16 +44,18 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         // If frozen, do not process movement
+        if (!isFrozen)
+        {
+            // Update the target position to match the current waypoint
+            if (waypoints.Length > 0 && waypointIndex < waypoints.Length)
+            {
+                targetPosition = waypoints[waypointIndex].position;
+                Move();
+            }
+        }
         if (isFrozen)
         {
             return;
-        }
-
-        // Update the target position to match the current waypoint
-        if (waypoints.Length > 0 && waypointIndex < waypoints.Length)
-        {
-            targetPosition = waypoints[waypointIndex].position;
-            Move();
         }
     }
 
@@ -105,7 +107,8 @@ public class EnemyMovement : MonoBehaviour
         if (!isFrozen)
         {
             isFrozen = true;
-            savedPosition = transform.position; // Save current position
+           //savedPosition = transform.position; // Save current position
+           moveSpeed = 0;
         }
     }
 

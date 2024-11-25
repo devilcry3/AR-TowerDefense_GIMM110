@@ -7,6 +7,13 @@ public class Rotate : MonoBehaviour
     [SerializeField] private float speed = 1f; 
     [SerializeField] private int damage = 3; // Damage dealt to enemies
     [SerializeField] private float damageInterval = 0.5f; // Time between consecutive damage to the same enemy
+    Health health;
+
+
+    private void Start()
+    {
+         health = GetComponent<Health>();
+    }
 
     private void Update()
     {
@@ -18,7 +25,7 @@ public class Rotate : MonoBehaviour
         // Check if the object is an enemy
         if (other.CompareTag("Enemy"))
         {
-            Health health = other.GetComponent<Health>();
+          
             if (health != null)
             {
                 // Apply damage and start periodic damage
@@ -35,6 +42,7 @@ public class Rotate : MonoBehaviour
         {
             yield return new WaitForSeconds(damageInterval);
             health.TakeDamage(damage);
+            yield return new WaitForSeconds(damageInterval);
         }
     }
 }

@@ -6,44 +6,60 @@ public class FreezeEnemies : MonoBehaviour
 {
     [SerializeField] private float freezeDuration = 10f; // Duration of the freeze in seconds
     [SerializeField] private LayerMask enemyLayer; // Layer of enemies to be frozen
+    
+
 
     private bool isFreezing = false;
-
+    private void Start()
+    {
+       
+    }
     void Update()
     {
         // Check if the player presses the freeze key and has enough coins
-        if (Input.GetKeyDown(KeyCode.F) && !isFreezing)
+        if (Input.GetKeyDown(KeyCode.L) && !isFreezing)
         {
+            Debug.Log("L pressed");
             StartCoroutine(FreezeAllEnemies());
         }
     }
 
     private IEnumerator FreezeAllEnemies()
     {
+        Debug.Log("coroutine");
         isFreezing = true;
 
-        // Find all enemies within the scene
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        Debug.Log(enemies.Length);
 
-        // Disable movement for all enemies
-        List<EnemyMovement> frozenEnemies = new List<EnemyMovement>();
+        // List<EnemyMovement> frozenEnemies = new List<EnemyMovement>();  //Un comment to use with EnemyMovement script
+        List<Waypoint> frozenEnemies = new List<Waypoint>();    //Comment out if using the EnemyMovement script
+
         foreach (GameObject enemy in enemies)
         {
-            EnemyMovement movement = enemy.GetComponent<EnemyMovement>();
-            if (movement != null)
+            Debug.Log("foreach");
+            //var enemyMovement = enemy.GetComponent<EnemyMovement>();  //Un comment to use with EnemyMovement script
+            var enemyMovement = enemy.GetComponent<Waypoint>();   //Comment out if using the EnemyMovement script
+
+            if (enemyMovement != null)
             {
-                movement.Freeze();
-                frozenEnemies.Add(movement);
+                enemyMovement.Freeze();
+                frozenEnemies.Add(enemyMovement);
+                Debug.Log("freeze");
             }
+            if (enemyMovement == null)
+            { Debug.Log("failed"); }
         }
 
-        // Wait for the freeze duration
         yield return new WaitForSeconds(freezeDuration);
 
-        // Re-enable movement for all previously frozen enemies
-        foreach (EnemyMovement movement in frozenEnemies)
+        foreach (var frozenEnemy in frozenEnemies)
         {
-            movement.Unfreeze();
+            if (frozenEnemy != null) // Check to ensure it's valid
+            {
+                frozenEnemy.Unfreeze();
+                Debug.Log("unfreeze");
+            }
         }
 
         isFreezing = false;
