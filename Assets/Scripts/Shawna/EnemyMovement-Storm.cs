@@ -18,7 +18,6 @@ public class EnemyMovement : MonoBehaviour
     // to the next one
     private int waypointIndex = 0;
 
-<<<<<<< Updated upstream
     // BarbedWire Requisition variables
     private bool isInWire = false;
 
@@ -26,21 +25,11 @@ public class EnemyMovement : MonoBehaviour
     private bool isFrozen = false;
     private Vector2 savedPosition; // Save position during freeze
 
-=======
-    //BarbedWire Requisition variables
-    private bool isInWire = false;
-
->>>>>>> Stashed changes
     // Use this for initialization
     private void Start()
     {
         spawn = GetComponent<EnemySpawn>();
-<<<<<<< Updated upstream
         // Initialize waypoints from the EnemySpawn singleton instance
-=======
-        //waypoints = spawn.waypoints;
-        // Initialize targetPosition to the position of the first waypoint
->>>>>>> Stashed changes
         if (EnemySpawn.Instance != null && EnemySpawn.Instance.waypoints.Length > 0)
         {
             waypoints = EnemySpawn.Instance.waypoints;
@@ -54,16 +43,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-<<<<<<< Updated upstream
         // If frozen, do not process movement
         if (isFrozen)
         {
             return;
         }
 
-=======
-       
->>>>>>> Stashed changes
         // Update the target position to match the current waypoint
         if (waypoints.Length > 0 && waypointIndex < waypoints.Length)
         {
@@ -80,16 +65,9 @@ public class EnemyMovement : MonoBehaviour
             float currentMoveSpeed = isInWire ? moveSpeed * 0.25f : moveSpeed; // if isInWire is true, multiply moveSpeed by 0.25 (Slows it to 1/4 speed), otherwise return normal moveSpeed
 
             // Move Enemy from current waypoint to the next one
-<<<<<<< Updated upstream
             transform.position = Vector2.MoveTowards(transform.position,
                targetPosition,
                currentMoveSpeed * Time.deltaTime);
-=======
-            // using MoveTowards method
-            transform.position = Vector2.MoveTowards(transform.position,
-               targetPosition,
-               moveSpeed * Time.deltaTime);
->>>>>>> Stashed changes
 
             // If the enemy is close to the target position, move to the next waypoint
             if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
@@ -105,10 +83,6 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("BarbedWire"))
@@ -125,7 +99,6 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-<<<<<<< Updated upstream
     // Freeze the enemy
     public void Freeze()
     {
@@ -145,9 +118,3 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 }
-=======
-
-}
-
-
->>>>>>> Stashed changes
