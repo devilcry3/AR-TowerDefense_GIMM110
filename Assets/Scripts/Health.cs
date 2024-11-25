@@ -10,22 +10,27 @@ public class Health : MonoBehaviour
     // Headers are like titles for the Unity Inspector.
     [Header("Health Settings")]
     // SerializeField allows you to see private variables in the inspector while keeping them private
+    RequisitionPoint rp; 
     [SerializeField] GameObject gameOver;
     [SerializeField] int maxHealth = 100;
     [SerializeField] Slider healthSlider;
-    [SerializeField] GameObject[] objectsToDisable; // Array of objects to disable when the object dies
-
-
+    [SerializeField] List<GameObject> objectsToDisable = new List<GameObject>(); // Array of objects to disable when the object dies
 
     /* In C# if you do not specify a variable modifier (i.e. public, private, protected), it defaults to private
     The private variable modifier stops other scripts from accessing those variables */
     public int currentHealth;
     #endregion // Marks the end of the region
 
+    private void Update()
+    {
+        ListClear();
+    }
+
     #region Unity Methods
     // Start is called before the first frame update
     private void Start()
     {
+        //Comment out this next line for testing Repair Towers
         currentHealth = maxHealth; // Sets the current health to the max health
 
         // If the health slider is not null, set the max value and current value
@@ -55,6 +60,9 @@ public class Health : MonoBehaviour
         // If the health is less than or equal to 0, call the Die method
         if (currentHealth <= 0)
         {
+            objectsToDisable.Add(gameObject);
+            if (gameObject == EnemySpawn.enemyUndead[0])
+            { }
             Die();
         }
     }
@@ -69,7 +77,7 @@ public class Health : MonoBehaviour
         // Disables all objects in the objectsToDisable array
         foreach (GameObject obj in objectsToDisable)
         {
-            obj.SetActive(false);
+           Destroy(gameObject);
         }
 
 
@@ -80,7 +88,23 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
         }
 
-
     }
+
+   void ListClear()
+    {
+        objectsToDisable.RemoveAll(item => item == null);
+    }
+
+    // Added to make repair towers work. -Steph
+    public void RestoreAllHealth()
+    {
+        Debug.Log("Restoring health to: " + maxHealth);
+        currentHealth = maxHealth;
+        if (healthSlider != null)
+        {
+            healthSlider.value = currentHealth; // Update the slider
+        }
+    }
+
     #endregion
 }
