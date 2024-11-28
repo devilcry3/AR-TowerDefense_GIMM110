@@ -8,13 +8,15 @@ public class LobObject : MonoBehaviour
 {
     AOE areaEffect;
     Health health;
+    Catapult cat;
 
-    [SerializeField] int damage = 15;
+    public int damage = 15;
 
     private void Start()
     {
         areaEffect = FindObjectOfType<AOE>();
         health = FindObjectOfType<Health>();
+        cat = FindObjectOfType<Catapult>();
     }
 
     void Update()
@@ -23,7 +25,15 @@ public class LobObject : MonoBehaviour
 
     }
 
-   
+   public void DamageChange(int x)
+    {
+        if (cat.upgrade == true)
+        {
+            damage = 20;
+        }
+        if (cat.upgrade != false) { damage = 15; }
+        
+    }
 
 
     private void OnTriggerEnter2D(Collider2D other)

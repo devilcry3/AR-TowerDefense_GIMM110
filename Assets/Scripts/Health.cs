@@ -91,18 +91,22 @@ public class Health : MonoBehaviour
             if (gameObject.CompareTag("Undead"))
             {
                 rP.AddPoints(5);
-                Debug.Log($"addpoints called");
-                objectsToDisable.Add(gameObject);
-                Die();
+            }
+            if (gameObject.CompareTag("Glow Undead"))
+            {
+                rP.AddPoints(5);
+            }
+            if (gameObject.CompareTag("Berserker"))
+            {
+                rP.AddPoints(10);
             }
             else
             {
-                Debug.LogWarning("This GameObject is not the first in enemyUndead or enemyUndead is empty.");
+                Debug.LogWarning("process came up null");
             }
 
-            //Debug.Log($"points = {Convert.ToString(rP.recPoints)}");
-           // objectsToDisable.Add(gameObject);
-           // Die();
+            objectsToDisable.Add(gameObject);
+            Die();
 
         }
     }
