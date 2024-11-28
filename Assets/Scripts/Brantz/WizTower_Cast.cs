@@ -9,6 +9,7 @@ public class WizTower_Cast : MonoBehaviour
     public Transform firePoint;         // Spawn point for projectile
     [SerializeField] float fireRate = 2.5f;  // Fire rate (in seconds)
     private float fireCooldown = 0f;
+    List<GameObject> enemies = new List<GameObject>();
 
 
     void Update()
@@ -24,7 +25,12 @@ public class WizTower_Cast : MonoBehaviour
                 fireCooldown = fireRate;
             }
         }
+        ListClear();
+    }
 
+    void ListClear()
+    {
+        enemies.RemoveAll(item => item == null);
     }
 
     void Shoot(Transform target)
@@ -40,8 +46,20 @@ public class WizTower_Cast : MonoBehaviour
 
     Transform FindClosestEnemy()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Undead");
-        Transform closestEnemy = null;
+       
+        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+
+        // Filter GameObjects by their layer
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.layer == 8)
+            {
+              
+                enemies.Add(obj); // Add to the list
+            }
+        }
+            Transform closestEnemy = null;
+        
         float shortestDistance = Mathf.Infinity;
 
         foreach (GameObject enemy in enemies)

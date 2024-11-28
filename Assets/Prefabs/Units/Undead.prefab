@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7224616523029680866}
   - component: {fileID: 8029302796739310596}
   - component: {fileID: 6612638427020919335}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Undead
   m_TagString: Undead
   m_Icon: {fileID: 0}
@@ -182,6 +182,7 @@ MonoBehaviour:
   maxHealth: 50
   healthSlider: {fileID: 0}
   objectsToDisable: []
+  units: []
   currentHealth: 0
 --- !u!95 &7224616523029680866
 Animator:

@@ -9,6 +9,13 @@ TagManager:
   - Undead
   - AOE
   - Detonator
+  - Tower
+  - PlayerBase
+  - EnemyBase
+  - DangerZone
+  - BarbedWire
+  - Glow Undead
+  - Berserker
   layers:
   - Default
   - TransparentFX
@@ -18,7 +25,7 @@ TagManager:
   - UI
   - MainCam
   - ARCam
-  - 
+  - Undead
   - 
   - 
   - 

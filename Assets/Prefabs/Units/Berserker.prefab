@@ -17,9 +17,9 @@ GameObject:
   - component: {fileID: 1320292381971804243}
   - component: {fileID: 6899732822039587816}
   - component: {fileID: 6695490800921158130}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Berserker
-  m_TagString: Untagged
+  m_TagString: Berserker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +183,7 @@ MonoBehaviour:
   maxHealth: 20
   healthSlider: {fileID: 0}
   objectsToDisable: []
+  units: []
   currentHealth: 0
 --- !u!114 &6880531259628860671
 MonoBehaviour:
