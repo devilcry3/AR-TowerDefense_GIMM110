@@ -32,14 +32,14 @@ public class FreezeEnemies : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         Debug.Log(enemies.Length);
 
-        // List<EnemyMovement> frozenEnemies = new List<EnemyMovement>();  //Un comment to use with EnemyMovement script
-        List<Waypoint> frozenEnemies = new List<Waypoint>();    //Comment out if using the EnemyMovement script
+        List<EnemyMovement> frozenEnemies = new List<EnemyMovement>();  //Un comment to use with EnemyMovement script
+        //List<Waypoint> frozenEnemies = new List<Waypoint>();    //Comment out if using the EnemyMovement script
 
         foreach (GameObject enemy in enemies)
         {
             Debug.Log("foreach");
-            //var enemyMovement = enemy.GetComponent<EnemyMovement>();  //Un comment to use with EnemyMovement script
-            var enemyMovement = enemy.GetComponent<Waypoint>();   //Comment out if using the EnemyMovement script
+            var enemyMovement = enemy.GetComponent<EnemyMovement>();  //Un comment to use with EnemyMovement script
+            //var enemyMovement = enemy.GetComponent<Waypoint>();   //Comment out if using the EnemyMovement script
 
             if (enemyMovement != null)
             {

@@ -23,7 +23,7 @@ public class Rotate : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Check if the object is an enemy
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("undead"))
         {
           
             if (health != null)

@@ -21,6 +21,10 @@ public class EnemyMovement : MonoBehaviour
     //BarbedWire Requisition variables
     private bool isInWire = false;
 
+    // Freezing variables
+    private bool isFrozen = false;
+    private Vector2 savedPosition;
+
     // Use this for initialization
     private void Start()
     {
@@ -40,7 +44,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-       
+        // If frozen, do not process movement
+        if (isFrozen)
+        {
+            return;
+        }
+
         // Update the target position to match the current waypoint
         if (waypoints.Length > 0 && waypointIndex < waypoints.Length)
         {
@@ -93,7 +102,25 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    // Freeze the enemy
+    public void Freeze()
+    {
+        if (!isFrozen)
+        {
+            isFrozen = true;
+            savedPosition = transform.position; // Save current position
+        }
+    }
 
+    // Unfreeze the enemy
+    public void Unfreeze()
+    {
+        if (isFrozen)
+        {
+            isFrozen = false;
+        }
+    }
 }
+
 
 
