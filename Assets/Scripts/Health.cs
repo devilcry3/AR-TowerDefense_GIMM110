@@ -14,13 +14,13 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject gameOver;
     [SerializeField] int maxHealth = 100;
     [SerializeField] Slider healthSlider;
+    EnemySpawn spawn;
     [SerializeField] List<GameObject> objectsToDisable = new List<GameObject>(); // Array of objects to disable when the object dies
 
     /* In C# if you do not specify a variable modifier (i.e. public, private, protected), it defaults to private
     The private variable modifier stops other scripts from accessing those variables */
     public int currentHealth;
     #endregion // Marks the end of the region
-
     private void Update()
     {
         ListClear();
@@ -38,6 +38,7 @@ public class Health : MonoBehaviour
         {
             healthSlider.maxValue = maxHealth;
             healthSlider.value = maxHealth;
+            spawn = FindObjectOfType<EnemySpawn>();
         }
     }
     #endregion
@@ -61,8 +62,7 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             objectsToDisable.Add(gameObject);
-            if (gameObject == EnemySpawn.enemyUndead[0])
-            { }
+           
             Die();
         }
     }
