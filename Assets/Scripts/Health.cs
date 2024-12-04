@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,11 +13,13 @@ public class Health : MonoBehaviour
     // Headers are like titles for the Unity Inspector.
     [Header("Health Settings")]
     // SerializeField allows you to see private variables in the inspector while keeping them private
-    RequisitionPoint rp; 
     [SerializeField] GameObject gameOver;
     [SerializeField] int maxHealth = 100;
     [SerializeField] Slider healthSlider;
     [SerializeField] List<GameObject> objectsToDisable = new List<GameObject>(); // Array of objects to disable when the object dies
+    [SerializeField] GameObject[] units;
+    EnemySpawn ES;
+    RequisitionPoints rP;
 
     /* In C# if you do not specify a variable modifier (i.e. public, private, protected), it defaults to private
     The private variable modifier stops other scripts from accessing those variables */
@@ -24,12 +29,33 @@ public class Health : MonoBehaviour
     private void Update()
     {
         ListClear();
+        
     }
 
     #region Unity Methods
     // Start is called before the first frame update
     private void Start()
     {
+        rP = FindObjectOfType<RequisitionPoints>();
+        ES = FindObjectOfType<EnemySpawn>();
+        if (ES == null)
+        {
+            Debug.LogError("EnemySpawn not found");
+        }
+        else
+        {
+            Debug.Log($"EnemySpawn found. {ES.enemyUndead.Length} undead enemies");
+        }
+
+        if (ES != null && ES.enemyUndead != null && ES.enemyUndead.Length > 0)
+        {
+            units = ES.enemyUndead;
+            Debug.Log($"First position: {units[0]?.name}");
+        }
+        else
+        {
+            Debug.LogError("ES or ES.enemyUndead is null or empty");
+        }
         //Comment out this next line for testing Repair Towers
         currentHealth = maxHealth; // Sets the current health to the max health
 
@@ -60,10 +86,28 @@ public class Health : MonoBehaviour
         // If the health is less than or equal to 0, call the Die method
         if (currentHealth <= 0)
         {
+            Debug.Log($"ES is null: {ES == null}");
+
+            if (gameObject.CompareTag("Undead"))
+            {
+                rP.AddPoints(5);
+            }
+            if (gameObject.CompareTag("Glow Undead"))
+            {
+                rP.AddPoints(5);
+            }
+            if (gameObject.CompareTag("Berserker"))
+            {
+                rP.AddPoints(10);
+            }
+            else
+            {
+                Debug.LogWarning("process came up null");
+            }
+
             objectsToDisable.Add(gameObject);
-            if (gameObject == EnemySpawn.enemyUndead[0])
-            { }
             Die();
+
         }
     }
 
@@ -77,7 +121,8 @@ public class Health : MonoBehaviour
         // Disables all objects in the objectsToDisable array
         foreach (GameObject obj in objectsToDisable)
         {
-           Destroy(gameObject);
+            
+            Destroy(gameObject);
         }
 
 

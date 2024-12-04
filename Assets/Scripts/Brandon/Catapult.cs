@@ -12,6 +12,8 @@ public class Catapult : MonoBehaviour
     [SerializeField] GameObject catapult;
    Vector2 spawnPosition;
     Quaternion spawnRotation = Quaternion.identity;
+   public bool upgrade=false;
+    bool finished;
    
     [SerializeField] float timeToSpawn = 5f;
     public float lobForce = 10f; // Adjust for desired throw strengt
@@ -65,7 +67,25 @@ public class Catapult : MonoBehaviour
             }
         }
 
-
-
+    public void Boost()
+    {
+        
+        if (!upgrade)
+        {
+            upgrade = true;
+            Debug.Log("boost engaged");
+            StartCoroutine(FastCrank());
+        }
+    }
+        IEnumerator FastCrank()
+        {
+       
+        timeToSpawn = 2f;
+        yield return new WaitForSeconds(6);  // Ensure this is properly awaited
+        upgrade = false;
+        timeToSpawn = 5;
+        Debug.Log("regular catapult");
+        yield break;
+        }
     
 }

@@ -17,9 +17,9 @@ GameObject:
   - component: {fileID: 1369969004988517328}
   - component: {fileID: 8003953623681024576}
   - component: {fileID: 4449203343583183642}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Glow Undead
-  m_TagString: Untagged
+  m_TagString: Glow Undead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +183,7 @@ MonoBehaviour:
   maxHealth: 20
   healthSlider: {fileID: 0}
   objectsToDisable: []
+  units: []
   currentHealth: 0
 --- !u!114 &1612950309183277624
 MonoBehaviour:
