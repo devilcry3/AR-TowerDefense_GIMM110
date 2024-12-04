@@ -54,13 +54,14 @@ public class EnemyMovement : MonoBehaviour
         // If Enemy didn't reach the last waypoint, it can move
         if (waypointIndex <= waypoints.Length - 1)
         {
-            float currentMoveSpeed = isInWire ? moveSpeed * 0.25f : moveSpeed; // if isInWire is true, multiply moveSpeed by 0.25 (Slows it to 1/4 speed), otherwise return normal moveSpeed
+           // float currentMoveSpeed = isInWire ? moveSpeed * 0.25f : moveSpeed; // if isInWire is true, multiply moveSpeed by 0.25 (Slows it to 1/4 speed), otherwise return normal moveSpeed
 
             // Move Enemy from current waypoint to the next one
             // using MoveTowards method
             transform.position = Vector2.MoveTowards(transform.position,
                targetPosition,
-               moveSpeed * Time.deltaTime);
+               isInWire ? (moveSpeed * 0.25f) * Time.deltaTime : moveSpeed * Time.deltaTime);
+            // moveSpeed * Time.deltaTime);
 
             // If the enemy is close to the target position, move to the next waypoint
             if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
@@ -79,7 +80,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("BarbedWire"))
+        if (other.CompareTag("Wire"))
         {
             isInWire = true;
         }
@@ -87,7 +88,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("BarbedWire"))
+        if (other.CompareTag("Wire"))
         {
             isInWire = false;
         }
