@@ -121,7 +121,19 @@ public class EnemyMovement : MonoBehaviour
             isFrozen = false;
         }
     }
+
+    public void ResetPath()
+    {
+        waypointIndex = 0; // Reset to the first waypoint
+        if (waypoints.Length > 0)
+        {
+            targetPosition = waypoints[waypointIndex].position;
+        }
+    }
+
 }
+
+
 
 
 

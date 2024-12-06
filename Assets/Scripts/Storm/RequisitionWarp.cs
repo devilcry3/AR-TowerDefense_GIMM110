@@ -5,9 +5,9 @@ using UnityEngine;
 public class RequisitionWarp : MonoBehaviour
 {
     [SerializeField] GameObject WarpCircle;
-    [SerializeField] float warpDuration = 3.0f;
+    [SerializeField] float warpDuration = 5.0f;
 
-    public void LoadOnClick()
+    public void WarpTimer()
     {
         if (!WarpCircle.activeInHierarchy)
         {

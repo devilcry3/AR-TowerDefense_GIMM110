@@ -16,6 +16,7 @@ TagManager:
   - BarbedWire
   - Glow Undead
   - Berserker
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

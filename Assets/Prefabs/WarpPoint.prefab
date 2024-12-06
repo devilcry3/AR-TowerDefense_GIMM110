@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6675260320630139911}
   - component: {fileID: 1517652600386339161}
   - component: {fileID: 705250141897037561}
+  - component: {fileID: 221635655271768398}
   m_Layer: 0
   m_Name: WarpPoint
   m_TagString: Untagged
@@ -120,3 +121,15 @@ CircleCollider2D:
   m_Offset: {x: -0.0038728714, y: -0.0019366741}
   serializedVersion: 2
   m_Radius: 0.53679156
+--- !u!114 &221635655271768398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709220018335130435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87001ad16195f264a9cd83e51cd9da8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
