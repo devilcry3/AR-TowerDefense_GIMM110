@@ -18,9 +18,12 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] int maxEnemies = 10; // Maximum number of enemies that can be spawned
     [SerializeField] int wave = 1; //Indicates wave
     public Transform[] waypoints;
+    int unitCounter2 = 0;
+    int maxEnemies2 = 10;
 
     // HideInInspector hides the variable from the inspector, but allows other scripts to access it if needed
     [HideInInspector] public int unitCounter = 0; // Counter for the number of enemies spawned
+
     #endregion // Marks the end of the region
 
     #region Unity Methods
@@ -41,11 +44,13 @@ public class EnemySpawn : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        StartCoroutine(SpawnTutorial());
+        /* originally planned to use a switch for wave's
         switch (wave)
         {
             case 1:
                 StartCoroutine(SpawnTutorial());
-                break;
+               / break;
             case 2:
                 maxEnemies = 20;
                 timeToSpawn = 2.5f;
@@ -58,6 +63,8 @@ public class EnemySpawn : MonoBehaviour
             default:
                 break;
         }
+        */ //Original spawn method for enemy units, was changed to account for different waves
+
         // Starts the coroutine to spawn enemies
         //A coroutine is a method that can pause execution and return control to
         //Unity but then continue where it left off on the following frame.
@@ -74,16 +81,16 @@ public class EnemySpawn : MonoBehaviour
     /// Spawns an enemy undead at regular intervals
     IEnumerator SpawnTutorial()
     {
-        while (true) // Infinite loop to keep spawning enemies
+        while (unitCounter < maxEnemies) // Infinite loop to keep spawning enemies
         {
-            if (unitCounter < maxEnemies)
-            {
+            //if (unitCounter < maxEnemies)
+           // {
                 
                 // Spawns an enemy undead at the enemy spawn position
                 GameObject spawnedEnemy = Instantiate(enemyUndead[0], enemySpawnPos.transform.position, Quaternion.identity, enemySpawnPos.transform);
                 spawnedEnemy.transform.Rotate(0, 0, 180); // Rotates the enemy to face the user
                 unitCounter++;
-            }
+           // }
 
             yield return new WaitForSeconds(timeToSpawn); // Waits for the specified time before spawning another enemy
         }
@@ -91,15 +98,14 @@ public class EnemySpawn : MonoBehaviour
 
     IEnumerator SpawnWave2()
     {
-        while (true) // Infinite loop to keep spawning enemies
+        while (unitCounter < maxEnemies) // Infinite loop to keep spawning enemies
         {
-            if (unitCounter < maxEnemies)
-            {
+            
                 // Spawns an enemy undead at the enemy spawn position
                 GameObject spawnedEnemy = Instantiate(enemyUndead[1], enemySpawnPos.transform.position, Quaternion.identity, enemySpawnPos.transform);
                 spawnedEnemy.transform.Rotate(0, 0, 180); // Rotates the enemy to face the user
                 unitCounter++;
-            }
+            
 
             yield return new WaitForSeconds(timeToSpawn); // Waits for the specified time before spawning another enemy
         }
@@ -113,11 +119,18 @@ public class EnemySpawn : MonoBehaviour
             {
                 // Spawns an enemy undead at the enemy spawn position
                 GameObject spawnedEnemy1 = Instantiate(enemyUndead[1], enemySpawnPos.transform.position, Quaternion.identity, enemySpawnPos.transform);
-                GameObject spawnedEnemy2 = Instantiate(enemyUndead[2], enemySpawnPos.transform.position, Quaternion.identity, enemySpawnPos.transform);
+               
                 spawnedEnemy1.transform.Rotate(0, 0, 180); // Rotates the enemy to face the user
-                spawnedEnemy1.transform.Rotate(0, 0, 180);
+                
                 unitCounter++;
-                unitCounter++;
+                
+            }
+
+            if (unitCounter2 < maxEnemies2)
+            {
+                GameObject spawnedEnemy2 = Instantiate(enemyUndead[2], enemySpawnPos.transform.position, Quaternion.identity, enemySpawnPos.transform);
+                spawnedEnemy2.transform.Rotate(0, 0, 180);
+                unitCounter2++;
             }
 
             yield return new WaitForSeconds(timeToSpawn); // Waits for the specified time before spawning another enemy
