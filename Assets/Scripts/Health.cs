@@ -104,6 +104,7 @@ public class Health : MonoBehaviour
             {
                 rP.AddPoints(10);
                 ++wave.berserk;
+                --ES.berz;
             }
             else
             {

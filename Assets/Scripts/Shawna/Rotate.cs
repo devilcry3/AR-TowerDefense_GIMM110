@@ -24,7 +24,7 @@ public class Rotate : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         // Check if the object is an enemy
-        if (other.CompareTag("Undead"))
+        if (other.gameObject.layer == 8)
         {
             Health enemyHealth = other.GetComponent<Health>();
             if (enemyHealth != null)

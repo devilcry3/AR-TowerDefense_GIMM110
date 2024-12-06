@@ -29,8 +29,20 @@ public class FreezeEnemies : MonoBehaviour
         Debug.Log("coroutine");
         isFreezing = true;
 
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log(enemies.Length);
+        //GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        List<GameObject> enemies = new List<GameObject>();
+        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+
+        // Filter GameObjects by their layer
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.layer == 8)
+            {
+
+                enemies.Add(obj); // Add to the list
+            }
+        }
+        Debug.Log(enemies.Count);
 
         List<EnemyMovement> frozenEnemies = new List<EnemyMovement>();  //Un comment to use with EnemyMovement script
         //List<Waypoint> frozenEnemies = new List<Waypoint>();    //Comment out if using the EnemyMovement script

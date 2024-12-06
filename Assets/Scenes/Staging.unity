@@ -678,6 +678,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6440145644086717581, guid: 0bcd98c6f953c0a40b33343a74b83c0c, type: 3}
   m_PrefabInstance: {fileID: 1760289749}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &465652121 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2734755808585354577, guid: df480ee34c26f2145abbdd5dfa787ae5, type: 3}
+  m_PrefabInstance: {fileID: 1136154027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &465652125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465652121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9ff84fc01e492479ae78d6b7433ad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tut: 0
+  glow: 0
+  berserk: 0
 --- !u!4 &570950954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3329180037638350694, guid: 0bcd98c6f953c0a40b33343a74b83c0c, type: 3}
@@ -1353,7 +1373,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2798996479265149071, guid: df480ee34c26f2145abbdd5dfa787ae5, type: 3}
       insertIndex: 0
       addedObject: {fileID: 874304578}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2734755808585354577, guid: df480ee34c26f2145abbdd5dfa787ae5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 465652125}
   m_SourcePrefab: {fileID: 100100000, guid: df480ee34c26f2145abbdd5dfa787ae5, type: 3}
 --- !u!4 &1143755557 stripped
 Transform:
@@ -2174,7 +2197,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
   m_Color: {r: 1, g: 0.19339621, b: 0.85276836, a: 1}
   m_FlipX: 0
