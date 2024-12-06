@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+    path: Assets/Scenes/LosingScene.unity
+    guid: 894970b82c6b2154083785b9c98db06d
+  - enabled: 1
     path: Assets/Scenes/EndTitle.unity
     guid: a28bb70182bbd814598a6f845eb04982
   m_configObjects: {}
