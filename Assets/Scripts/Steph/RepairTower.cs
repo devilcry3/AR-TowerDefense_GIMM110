@@ -7,6 +7,8 @@ public class RepairTower : MonoBehaviour
 
     private void Update()
     {
+       /*
+        * this code was used for functonality testing of code
         //Debug.Log("Update method is happening.");
         if (Input.GetKeyDown(KeyCode.R)) 
         // Will repair towers when R is pressed. This is for testing.
@@ -17,6 +19,7 @@ public class RepairTower : MonoBehaviour
             Debug.Log("New Ballista health: ");
 
         }
+       */
     }
     
     public void RepairTowers()

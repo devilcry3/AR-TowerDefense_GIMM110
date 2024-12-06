@@ -14,6 +14,21 @@ public class Requisition : MonoBehaviour
     [SerializeField] float freezeDuration = 10f;
     private bool isFreezing = false;
 
+    RepairTower repair;
+
+    private void Start()
+    {
+        repair = FindObjectOfType<RepairTower>();
+    }
+
+    public void DeployRepair()
+    {
+        if (repair != null)
+        {
+            repair.RepairTowers();
+        }
+    }
+
     public void DeployWire()
     {
         if (!BarbedWire.activeInHierarchy)
@@ -47,7 +62,7 @@ public class Requisition : MonoBehaviour
 
         yield return new WaitForSeconds(warpDuration);
 
-        WarpCircle.SetActive(true);
+        WarpCircle.SetActive(false);
 
     }
 
