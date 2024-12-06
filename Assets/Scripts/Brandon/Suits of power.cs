@@ -53,7 +53,7 @@ public class Suitsofpower : MonoBehaviour
             case 0:
                 cat.Boost(); break;
             case 1:
-                UpCastt(); break;
+                WT.Boost(); break;
             case 2:
                 BetterBellista(); break;
             case 3:

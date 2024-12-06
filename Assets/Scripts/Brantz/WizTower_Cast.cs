@@ -7,9 +7,10 @@ public class WizTower_Cast : MonoBehaviour
     // Variables
     public GameObject fireballPrefab;   // Reference fireball prefab
     public Transform firePoint;         // Spawn point for projectile
-    [SerializeField] float fireRate = 2.5f;  // Fire rate (in seconds)
+    [SerializeField] float fireRate = 2;  // Fire rate (in seconds)
     private float fireCooldown = 0f;
     List<GameObject> enemies = new List<GameObject>();
+    bool upgrade;
 
 
     void Update()
@@ -77,4 +78,28 @@ public class WizTower_Cast : MonoBehaviour
 
     }
 
+    public void Boost()
+    {
+
+        if (!upgrade)
+        {
+            upgrade = true;
+            Debug.Log("boost engaged");
+            StartCoroutine(UpCast());
+        }
+    }
+    IEnumerator UpCast()
+    {
+
+        fireRate = .85f;
+        yield return new WaitForSeconds(6);  // Ensure this is properly awaited
+        upgrade = false;
+        fireRate = 2f;
+        Debug.Log("FIREBALL!!!");
+        yield break;
+    }
+
 }
+
+
+
