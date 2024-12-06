@@ -11,6 +11,7 @@ public class Suitsofpower : MonoBehaviour
     WizTower_Cast WT;
     Catapult cat;
     BallistaTower BT;
+    Rotate spin;
     [SerializeField] GameObject[] cards;
     int selector;
 
@@ -20,6 +21,7 @@ public class Suitsofpower : MonoBehaviour
         WT = FindObjectOfType<WizTower_Cast>();
         cat = FindObjectOfType<Catapult>();
         BT = FindObjectOfType<BallistaTower>();
+        spin = FindObjectOfType<Rotate>();
         // Attach listeners to each card's SpriteRendererWatcher
         foreach (GameObject card in cards)
         {
@@ -55,63 +57,12 @@ public class Suitsofpower : MonoBehaviour
             case 1:
                 WT.Boost(); break;
             case 2:
-                BetterBellista(); break;
+                BT.Boost(); break;
             case 3:
-                SharpEdge(); break;
+                spin.Boost(); break;
             default:
                Debug.Log("switch failed");
                 break;
-        }
-    }
-    void UpCastt()
-    {
-        if (cards != null && cards.Length > 0)
-        {
-            if (cards[1] != null)
-            {
-                SpriteRenderer spriteRenderer = cards[1].GetComponent<SpriteRenderer>();
-                if (spriteRenderer != null)
-                {
-                    if (spriteRenderer.enabled && spriteRenderer.gameObject.activeInHierarchy)
-                    {
-                        Debug.Log("The SpriteRenderer is active and visible.");
-                    }
-                }
-            }
-        }
-    }
-    void SharpEdge()
-    {
-        if (cards != null && cards.Length > 0)
-        {
-            if (cards[3] != null)
-            {
-                SpriteRenderer spriteRenderer = cards[3].GetComponent<SpriteRenderer>();
-                if (spriteRenderer != null)
-                {
-                    if (spriteRenderer.enabled && spriteRenderer.gameObject.activeInHierarchy)
-                    {
-                        Debug.Log("The SpriteRenderer is active and visible.");
-                    }
-                }
-            }
-        }
-    }
-    void BetterBellista()
-    {
-        if (cards != null && cards.Length > 0)
-        {
-            if (cards[2] != null)
-            {
-                SpriteRenderer spriteRenderer = cards[2].GetComponent<SpriteRenderer>();
-                if (spriteRenderer != null)
-                {
-                    if (spriteRenderer.enabled && spriteRenderer.gameObject.activeInHierarchy)
-                    {
-                        Debug.Log("The SpriteRenderer is active and visible.");
-                    }
-                }
-            }
         }
     }
 }

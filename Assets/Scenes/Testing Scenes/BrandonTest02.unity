@@ -2128,8 +2128,8 @@ Transform:
   m_GameObject: {fileID: 1619806279}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9909, y: -1.9909, z: 0.15308511}
-  m_LocalScale: {x: 1.8143283, y: 2.018087, z: 1}
+  m_LocalPosition: {x: 1.2053, y: -2.006, z: 0.15308511}
+  m_LocalScale: {x: 2.684843, y: 1.961984, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1451324930}
@@ -2215,12 +2215,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.000000059604645}
+  m_Offset: {x: -0.0027206172, y: -0.00079595024}
   serializedVersion: 2
-  m_Radius: 0.49999997
+  m_Radius: 0.53451306
 --- !u!50 &1619806283
 Rigidbody2D:
   serializedVersion: 4
@@ -2261,7 +2261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  damage: 3
+  damage: 1
   damageInterval: 0.5
 --- !u!1 &1634787700
 GameObject:
