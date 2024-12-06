@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class ARCameraToggle : MonoBehaviour
 {
     [SerializeField] public GameObject arCamera; //assign camera to this field in inspector
-    [SerializeField] public Text timerText; //assign UI text for countdown
+    [SerializeField] public TextMeshProUGUI timerText; //assign UI text for countdown
     [SerializeField] private float activeDuration = 10f; //time the camera stays on
     [SerializeField] private float inactiveDuration = 30f; //time the camera stays inactive
 
     void Start()
     {
+        arCamera.SetActive(false); //this is here to make the camera inactive at first
         StartCoroutine(ToggleCamera());
     }
 
@@ -21,6 +22,8 @@ public class ARCameraToggle : MonoBehaviour
     {
         while (true)
         {
+            yield return StartCoroutine(Countdown(inactiveDuration)); //this is here to make the camera inactive at first, too
+
             //activate AR camera and show countdown for active duration
             arCamera.SetActive(true);
             Debug.Log("AR Camera Activated");
@@ -39,7 +42,7 @@ public class ARCameraToggle : MonoBehaviour
         while (timeRemaining > 0)
         {
             //update timer text
-            timerText.text = $"Time:{timeRemaining:F1} seconds";
+            timerText.text = $"{timeRemaining:F0}";
             yield return new WaitForSeconds(0.1f); //updated every 0.1 seconds
             timeRemaining -= 0.1f;
         }

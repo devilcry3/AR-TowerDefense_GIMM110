@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7583fc3660b1ec44b9cc730b5861cf4
-      internalID: -1528302406
+      spriteID: ecc30d36fe5d904438a5a67506735692
+      internalID: -1896054930
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 664961ff59142cc4ba23178b27c57f92
-      internalID: -2088564682
+      spriteID: 95ce3bb97e9dcfe49bc3f376392a7726
+      internalID: 199128564
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 905aa921df36ead41b4b3aa1a12179cf
-      internalID: -1659908193
+      spriteID: e90add822333d034d971c5a0e8b3b3f0
+      internalID: 1559418603
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fad427ef69a53a49ae95c26736b3df8
-      internalID: 1939451475
+      spriteID: eadd6a180a28e424db34597708dfd30b
+      internalID: 1126351207
       vertices: []
       indices: 
       edges: []
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89600aaaed1488c4ca4966c397b304e2
-      internalID: 769636579
+      spriteID: 5fbb8247a71fd334abe23f515b22f175
+      internalID: -466626428
       vertices: []
       indices: 
       edges: []
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4105352c35e4d7f408ca78ad6f1ef2be
-      internalID: -410183399
+      spriteID: 64c3da0cc41b85e4faa20f807391a0ca
+      internalID: -1755603642
       vertices: []
       indices: 
       edges: []
@@ -250,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afd4b97899ab60f4fad74d90cce5fa87
-      internalID: -1912870964
+      spriteID: 3662b06bf19df10409c1983721fcdcf5
+      internalID: -802994150
       vertices: []
       indices: 
       edges: []
@@ -271,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1251510937459b547a6bbec4176f3450
-      internalID: -805275876
+      spriteID: a18f7548766921542b71e748baed6a5c
+      internalID: 1642141836
       vertices: []
       indices: 
       edges: []
@@ -292,8 +292,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c7bd5402c41ab74e8699679ce8e88ac
-      internalID: 537617618
+      spriteID: 7707efa08f8717d4988029215efe89ea
+      internalID: 298300835
       vertices: []
       indices: 
       edges: []
@@ -313,8 +313,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61a52a709baa6d8498bbb65d2fee13d5
-      internalID: -519493320
+      spriteID: 5ab5e16f9ca52224a84cb36191cc68db
+      internalID: -1532687485
       vertices: []
       indices: 
       edges: []
@@ -334,8 +334,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8824d09a5d2c1d45ac380fd497ac5a8
-      internalID: -52428485
+      spriteID: 6c92169d465a2a04c932f91a5f3e13b5
+      internalID: -2063246317
       vertices: []
       indices: 
       edges: []
@@ -355,8 +355,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ea7cdb5eba6bf14ba5e0135d444d3a5
-      internalID: -809290091
+      spriteID: ed715b516f5551a4ea55f9315837c1a6
+      internalID: -180722877
       vertices: []
       indices: 
       edges: []
@@ -372,18 +372,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WarpCircle_Sheet_0: -1528302406
-      WarpCircle_Sheet_1: -2088564682
-      WarpCircle_Sheet_10: -52428485
-      WarpCircle_Sheet_11: -809290091
-      WarpCircle_Sheet_2: -1659908193
-      WarpCircle_Sheet_3: 1939451475
-      WarpCircle_Sheet_4: 769636579
-      WarpCircle_Sheet_5: -410183399
-      WarpCircle_Sheet_6: -1912870964
-      WarpCircle_Sheet_7: -805275876
-      WarpCircle_Sheet_8: 537617618
-      WarpCircle_Sheet_9: -519493320
+      WarpCircle_Sheet_0: -1896054930
+      WarpCircle_Sheet_1: 199128564
+      WarpCircle_Sheet_10: -2063246317
+      WarpCircle_Sheet_11: -180722877
+      WarpCircle_Sheet_2: 1559418603
+      WarpCircle_Sheet_3: 1126351207
+      WarpCircle_Sheet_4: -466626428
+      WarpCircle_Sheet_5: -1755603642
+      WarpCircle_Sheet_6: -802994150
+      WarpCircle_Sheet_7: 1642141836
+      WarpCircle_Sheet_8: 298300835
+      WarpCircle_Sheet_9: -1532687485
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
