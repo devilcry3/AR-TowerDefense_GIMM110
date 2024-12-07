@@ -1270,7 +1270,6 @@ MonoBehaviour:
   wireDuration: 5
   WarpCircle: {fileID: 1015565599}
   warpDuration: 5
-  freezeDuration: 10
 --- !u!4 &570950954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3329180037638350694, guid: 0bcd98c6f953c0a40b33343a74b83c0c, type: 3}
@@ -2428,7 +2427,6 @@ MonoBehaviour:
   wireDuration: 5
   WarpCircle: {fileID: 0}
   warpDuration: 3
-  freezeDuration: 10
 --- !u!1 &1205200955
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,6 +2811,54 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 1257446361}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!1 &1265546339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1265546341}
+  - component: {fileID: 1265546340}
+  m_Layer: 0
+  m_Name: FreezeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1265546340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265546339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812fe418256c9454e844c9a036a27310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freezeDuration: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!4 &1265546341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265546339}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.024706, y: -0.10478893, z: 1.8795692}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1336141369 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1981683715931095587, guid: a7e5ec35d8dd60b418d895be148613db, type: 3}
@@ -3245,7 +3291,6 @@ MonoBehaviour:
   wireDuration: 5
   WarpCircle: {fileID: 1015565599}
   warpDuration: 7
-  freezeDuration: 10
 --- !u!4 &1599252719 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2798996479265149071, guid: df480ee34c26f2145abbdd5dfa787ae5, type: 3}
@@ -3671,6 +3716,7 @@ GameObject:
   - component: {fileID: 1699760467}
   - component: {fileID: 1699760466}
   - component: {fileID: 1699760465}
+  - component: {fileID: 1699760468}
   m_Layer: 5
   m_Name: FreezeButton
   m_TagString: Untagged
@@ -3741,7 +3787,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1699760466}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1699760468}
+        m_TargetAssemblyTypeName: Requisition, Assembly-CSharp
+        m_MethodName: DeployFreeze
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1699760466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3780,6 +3838,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699760463}
   m_CullTransparentMesh: 1
+--- !u!114 &1699760468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699760463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b285c1544878f7f418fa03176ed4752a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BarbedWire: {fileID: 0}
+  wireDuration: 5
+  WarpCircle: {fileID: 0}
+  warpDuration: 3
 --- !u!4 &1719770704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8101279177711586497, guid: 0bcd98c6f953c0a40b33343a74b83c0c, type: 3}
@@ -4810,3 +4884,4 @@ SceneRoots:
   - {fileID: 10543563}
   - {fileID: 1015565598}
   - {fileID: 1163455846}
+  - {fileID: 1265546341}

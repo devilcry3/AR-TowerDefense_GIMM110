@@ -11,22 +11,14 @@ public class Requisition : MonoBehaviour
     [SerializeField] GameObject WarpCircle;
     [SerializeField] float warpDuration = 3f;
 
-    [SerializeField] float freezeDuration = 10f;
-    private bool isFreezing = false;
 
     RepairTower repair;
+    FreezeEnemies freeze;
 
     private void Start()
     {
         repair = FindObjectOfType<RepairTower>();
-    }
-
-    public void DeployRepair()
-    {
-        if (repair != null)
-        {
-            repair.RepairTowers();
-        }
+        freeze = GetComponent<FreezeEnemies>();
     }
 
     public void DeployWire()
@@ -66,21 +58,15 @@ public class Requisition : MonoBehaviour
 
     }
 
+    public void DeployRepair()
+    {
+        repair.RepairTowers();
+    }
+
     public void DeployFreeze()
     {
-        if (!isFreezing)
-        {
-            StartCoroutine(FreezeAllEnenmies());
-        }
+        freeze.FreezeAllEnemies();
     }
 
-    private IEnumerator FreezeAllEnenmies()
-    {
-        isFreezing = true;
-
-        yield return new WaitForSeconds(freezeDuration);
-
-        isFreezing = false;
-    }
 
 }

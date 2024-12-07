@@ -16,15 +16,16 @@ public class FreezeEnemies : MonoBehaviour
     }
     void Update()
     {
+        /*
         // Check if the player presses the freeze key and has enough coins
         if (Input.GetKeyDown(KeyCode.L) && !isFreezing)
         {
             Debug.Log("L pressed");
             StartCoroutine(FreezeAllEnemies());
-        }
+        }*/
     }
 
-    private IEnumerator FreezeAllEnemies()
+    public IEnumerator FreezeAllEnemies()
     {
         Debug.Log("coroutine");
         isFreezing = true;
