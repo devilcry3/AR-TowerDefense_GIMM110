@@ -21,7 +21,7 @@ public class AOE : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-       if (other.gameObject.layer == 8)
+       if (other.gameObject.tag =="Undead")
         {
             enemyList.Add(other.gameObject);
         }
@@ -29,7 +29,7 @@ public class AOE : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.gameObject.layer ==8)
+        if(other.gameObject.tag =="Undead")
         {
             enemyList.Remove(other.gameObject);
         }

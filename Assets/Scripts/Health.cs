@@ -20,7 +20,6 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject[] units;
     EnemySpawn ES;
     RequisitionPoints rP;
-    Wave wave;
 
     /* In C# if you do not specify a variable modifier (i.e. public, private, protected), it defaults to private
     The private variable modifier stops other scripts from accessing those variables */
@@ -39,7 +38,6 @@ public class Health : MonoBehaviour
     {
         rP = FindObjectOfType<RequisitionPoints>();
         ES = FindObjectOfType<EnemySpawn>();
-        wave = FindObjectOfType<Wave>();
         if (ES == null)
         {
             Debug.LogError("EnemySpawn not found");
@@ -93,18 +91,14 @@ public class Health : MonoBehaviour
             if (gameObject.CompareTag("Undead"))
             {
                 rP.AddPoints(5);
-                ++wave.tut;
             }
             if (gameObject.CompareTag("Glow Undead"))
             {
                 rP.AddPoints(5);
-                ++wave.glow;
             }
             if (gameObject.CompareTag("Berserker"))
             {
                 rP.AddPoints(10);
-                ++wave.berserk;
-                --ES.berz;
             }
             else
             {

@@ -7,7 +7,7 @@ public class WizTower_Cast : MonoBehaviour
     // Variables
     public GameObject fireballPrefab;   // Reference fireball prefab
     public Transform firePoint;         // Spawn point for projectile
-     float fireRate = 2;  // Fire rate (in seconds)
+    [SerializeField] float fireRate = 2;  // Fire rate (in seconds)
     private float fireCooldown = 0f;
     List<GameObject> enemies = new List<GameObject>();
     bool upgrade;
@@ -15,7 +15,6 @@ public class WizTower_Cast : MonoBehaviour
 
     void Update()
     {
-        ListClear();
         fireCooldown -= Time.deltaTime;
 
         if (fireCooldown <= 0f)
@@ -66,15 +65,13 @@ public class WizTower_Cast : MonoBehaviour
 
         foreach (GameObject enemy in enemies)
         {
-            if (enemy == null)
-                continue; // Skip this iteration if the enemy is null
-
             float distance = Vector2.Distance(transform.position, enemy.transform.position);
             if (distance < shortestDistance)
             {
                 shortestDistance = distance;
                 closestEnemy = enemy.transform;
             }
+
         }
 
         return closestEnemy;
