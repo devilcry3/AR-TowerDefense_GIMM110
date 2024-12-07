@@ -45,7 +45,7 @@ public class Fireball_Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Undead"))
+        if (other.gameObject.layer == 8)
         {
             //Damage enemy
             Health enemyHealth = other.GetComponent<Health>(); 

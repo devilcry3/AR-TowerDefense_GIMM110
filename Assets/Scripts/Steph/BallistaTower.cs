@@ -11,6 +11,7 @@ public class BallistaTower : MonoBehaviour
     [SerializeField] private Transform firePoint; // Point from which the spear will be fired
     [SerializeField] private float spearSpeed = 10f; // Speed of the spear
     [SerializeField] private int spearDamage = 10; // Spear damage
+    bool upgrade;
     Quaternion spearRotation;
 
     private void Start()
@@ -52,5 +53,26 @@ public class BallistaTower : MonoBehaviour
 
         // Destroy the spear after a number of seconds
         Destroy(spear, fireInterval);
+    }
+
+    public void Boost()
+    {
+
+        if (!upgrade)
+        {
+            upgrade = true;
+            Debug.Log("boost engaged");
+            StartCoroutine(Pew());
+        }
+    }
+    IEnumerator Pew()
+    {
+
+        fireInterval = 2f;
+        yield return new WaitForSeconds(6);  // Ensure this is properly awaited
+        upgrade = false;
+        fireInterval = 5f;
+        Debug.Log("BRRRRR");
+        yield break;
     }
 }

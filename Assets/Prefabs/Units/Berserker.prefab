@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 4330082778688143551}
   - component: {fileID: 2542064724083038363}
   - component: {fileID: 960436073212413708}
-  - component: {fileID: 6880531259628860671}
   - component: {fileID: 1320292381971804243}
   - component: {fileID: 6899732822039587816}
-  - component: {fileID: 6695490800921158130}
+  - component: {fileID: -2921388491086628870}
   m_Layer: 8
   m_Name: Berserker
   m_TagString: Berserker
@@ -34,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.99999744, w: -0.0022807717}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.445, y: 1.48, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -185,24 +184,6 @@ MonoBehaviour:
   objectsToDisable: []
   units: []
   currentHealth: 0
---- !u!114 &6880531259628860671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6799179358621463195}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93d4854459df0e341a6e76a33a84423a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  attackRange: 1
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  attackDamage: 10
 --- !u!95 &1320292381971804243
 Animator:
   serializedVersion: 5
@@ -251,7 +232,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6695490800921158130
+--- !u!114 &-2921388491086628870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,8 +241,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6799179358621463195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92f6576655d086d4e8ccfd97fb2fc1f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b681646dce0a86499aec0639a661bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
-  damageRate: 1
+  damagePerSecond: 1
