@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  rotationSpeed: 200
+  rotationSpeed: 400
   damage: 10
 --- !u!50 &325313022413140961
 Rigidbody2D:

@@ -48,7 +48,7 @@ public class WizTower_Cast : MonoBehaviour
     Transform FindClosestEnemy()
     {
        
-        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>(); //Array
 
         // Filter GameObjects by their layer
         foreach (GameObject obj in allObjects)
