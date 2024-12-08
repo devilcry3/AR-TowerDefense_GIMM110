@@ -1270,6 +1270,10 @@ MonoBehaviour:
   wireDuration: 5
   WarpCircle: {fileID: 1015565599}
   warpDuration: 5
+  warpCost: 5
+  wireCost: 5
+  repairCost: 5
+  freezeCost: 5
 --- !u!4 &570950954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3329180037638350694, guid: 0bcd98c6f953c0a40b33343a74b83c0c, type: 3}
@@ -2427,6 +2431,10 @@ MonoBehaviour:
   wireDuration: 5
   WarpCircle: {fileID: 0}
   warpDuration: 3
+  warpCost: 5
+  wireCost: 5
+  repairCost: 5
+  freezeCost: 5
 --- !u!1 &1205200955
 GameObject:
   m_ObjectHideFlags: 0
@@ -3291,6 +3299,10 @@ MonoBehaviour:
   wireDuration: 5
   WarpCircle: {fileID: 1015565599}
   warpDuration: 7
+  warpCost: 5
+  wireCost: 5
+  repairCost: 5
+  freezeCost: 5
 --- !u!4 &1599252719 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2798996479265149071, guid: df480ee34c26f2145abbdd5dfa787ae5, type: 3}
@@ -3854,6 +3866,10 @@ MonoBehaviour:
   wireDuration: 5
   WarpCircle: {fileID: 0}
   warpDuration: 3
+  warpCost: 5
+  wireCost: 5
+  repairCost: 5
+  freezeCost: 5
 --- !u!4 &1719770704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8101279177711586497, guid: 0bcd98c6f953c0a40b33343a74b83c0c, type: 3}

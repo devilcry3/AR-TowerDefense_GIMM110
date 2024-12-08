@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Requisition : MonoBehaviour
 {
-    [SerializeField] GameObject BarbedWire;         //assign barbed wire object in inspector
+    [SerializeField] GameObject BarbedWire;   //assign barbed wire object in inspector
     [SerializeField] float wireDuration = 5f; //time it remains active
     
     [SerializeField] GameObject WarpCircle;
@@ -14,17 +14,26 @@ public class Requisition : MonoBehaviour
 
     RepairTower repair;
     FreezeEnemies freeze;
+    RequisitionPoints reqPoints;
+
+    //Req Point costs
+    [SerializeField] int warpCost = 5;
+    [SerializeField] int wireCost = 5;
+    [SerializeField] int repairCost = 5;
+    [SerializeField] int freezeCost = 5;
 
     private void Start()
     {
         repair = FindObjectOfType<RepairTower>();
-        freeze = GetComponent<FreezeEnemies>();
+        freeze = FindObjectOfType<FreezeEnemies>();
+        reqPoints = FindObjectOfType<RequisitionPoints>();
     }
 
     public void DeployWire()
     {
-        if (!BarbedWire.activeInHierarchy)
+        if (reqPoints.recPoints >= wireCost && !BarbedWire.activeInHierarchy)
         {
+            reqPoints.recPoints -= wireCost; //This is what deducts the points spent
             StartCoroutine(DeployBarbedWire());
 
         }
@@ -42,8 +51,9 @@ public class Requisition : MonoBehaviour
 
    public void DeployWarp()
     {
-        if (!WarpCircle.activeInHierarchy)
+        if (reqPoints.recPoints >= warpCost && !WarpCircle.activeInHierarchy)
         {
+            reqPoints.recPoints -= warpCost;
             StartCoroutine(StartWarpCircle());
         }
     }
@@ -60,12 +70,20 @@ public class Requisition : MonoBehaviour
 
     public void DeployRepair()
     {
-        repair.RepairTowers();
+        if (reqPoints.recPoints >= repairCost)
+        {
+            reqPoints.recPoints -= repairCost;
+            repair.RepairTowers();
+        }
     }
 
     public void DeployFreeze()
     {
-        freeze.FreezeAllEnemies();
+        if (reqPoints.recPoints >= freezeCost)
+        {
+            reqPoints.recPoints -= freezeCost;
+            StartCoroutine(freeze.FreezeAllEnemies());
+        }
     }
 
 
