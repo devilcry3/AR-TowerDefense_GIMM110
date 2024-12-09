@@ -121,7 +121,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 4
 --- !u!61 &2542064724083038363
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 0}
-  maxHealth: 20
+  maxHealth: 110
   healthSlider: {fileID: 0}
   objectsToDisable: []
   units: []
