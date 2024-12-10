@@ -79,8 +79,9 @@ public class EnemySpawn : MonoBehaviour
                 case 2:
                     unitCounter = 0;
                     maxEnemies += 10;
-                    currentCoroutine = StartCoroutine(SpawnWave3());
-                    break;
+                currentCoroutine = StartCoroutine(SpawnWave3());
+                    StartCoroutine(Berzerk());
+                break;
                 default:
                     break;
             }
@@ -126,7 +127,7 @@ public class EnemySpawn : MonoBehaviour
 
     IEnumerator SpawnWave3()
     {
-        while (unitCounter < maxEnemies && unitCounter2 < maxEnemies2)
+        while (unitCounter < maxEnemies || unitCounter2 < maxEnemies2)
         {
             if (unitCounter < maxEnemies) // Infinite loop to keep spawning enemies
             {
@@ -139,6 +140,13 @@ public class EnemySpawn : MonoBehaviour
 
                 yield return new WaitForSeconds(timeToSpawn); // Waits for the specified time before spawning another enemy
             }
+            
+        }
+    }
+    IEnumerator Berzerk()
+    {
+        while (unitCounter2 < maxEnemies2)
+        {
             if (unitCounter2 < maxEnemies2 && berz < 2) //Berserker spawn script
             {
                 GameObject spawnedEnemy2 = Instantiate(enemyUndead[2], enemySpawnPos.transform.position, Quaternion.identity, enemySpawnPos.transform);
