@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 4764276796687728748}
   - component: {fileID: 383501347697513376}
   - component: {fileID: 3417003598641122796}
-  - component: {fileID: 1612950309183277624}
   - component: {fileID: 1369969004988517328}
   - component: {fileID: 8003953623681024576}
-  - component: {fileID: 4449203343583183642}
+  - component: {fileID: -1319292505701093941}
   m_Layer: 8
   m_Name: Glow Undead
   m_TagString: Glow Undead
@@ -34,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.99999744, w: -0.0022807717}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 21.108, y: 17.58, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -180,29 +179,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 0}
-  maxHealth: 90
+  maxHealth: 65
   healthSlider: {fileID: 0}
   objectsToDisable: []
   units: []
   currentHealth: 0
---- !u!114 &1612950309183277624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128170315080252329}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93d4854459df0e341a6e76a33a84423a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  attackRange: 1
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  attackDamage: 10
 --- !u!95 &1369969004988517328
 Animator:
   serializedVersion: 5
@@ -251,7 +232,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4449203343583183642
+--- !u!114 &-1319292505701093941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,8 +241,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2128170315080252329}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92f6576655d086d4e8ccfd97fb2fc1f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b681646dce0a86499aec0639a661bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
-  damageRate: 1
+  damagePerSecond: 1
