@@ -12,15 +12,18 @@ public class Spear : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if the object hit has a Health component
-        Health enemyHealth = collision.GetComponent<Health>();
-        if (enemyHealth != null)
+        if(collision.gameObject.layer == 8)
         {
-            // Deal damage to the enemy
-            enemyHealth.TakeDamage(damage);
+            // Check if the object hit has a Health component
+            Health enemyHealth = collision.GetComponent<Health>();
+            if (enemyHealth != null)
+            {
+                // Deal damage to the enemy
+                enemyHealth.TakeDamage(damage);
 
-            // Destroy the spear after hitting an enemy
-            Destroy(gameObject);
+                // Destroy the spear after hitting an enemy
+                Destroy(gameObject);
+            }
         }
     }
 }
