@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1517652600386339161}
   - component: {fileID: 705250141897037561}
   - component: {fileID: 221635655271768398}
+  - component: {fileID: 5421574308677554203}
   m_Layer: 0
   m_Name: WarpPoint
   m_TagString: Untagged
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.45660377, g: 1, b: 0.9382721, a: 1}
+  m_Sprite: {fileID: -1896054930, guid: b8f6f5c0ebd88344294d9db0658a4a30, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -133,3 +134,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87001ad16195f264a9cd83e51cd9da8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &5421574308677554203
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709220018335130435}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 66ac926d8e76fcd49b6df832f9e10684, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
