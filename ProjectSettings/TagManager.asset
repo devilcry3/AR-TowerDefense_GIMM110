@@ -16,6 +16,7 @@ TagManager:
   - BarbedWire
   - Glow Undead
   - Berserker
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
@@ -53,6 +54,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Requisitions
-    uniqueID: 3263875651
+  - name: Logos
+    uniqueID: 266394843
     locked: 0
