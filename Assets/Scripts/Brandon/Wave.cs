@@ -16,12 +16,16 @@ public class Wave : MonoBehaviour
     public int berserk = 0;
     bool nextWaveStarting = false;
 
+    [SerializeField] GameObject necroSpeech;
+    int speechTime = 4;
 
     // Start is called before the first frame update
     void Start()
     {
         hp = FindObjectOfType<Health>();
         eS = GetComponent<EnemySpawn>();
+        StartCoroutine(Necromancer());
+        
     }
 
     // Update is called once per frame
@@ -37,6 +41,7 @@ public class Wave : MonoBehaviour
         if(tut >= maxTut && !nextWaveStarting)
         {
             nextWaveStarting = true;
+            StartCoroutine(Necromancer());
            StartCoroutine(NextWave(1)); //calls coroutine to begin moving into the next wave
             
         }
@@ -46,6 +51,7 @@ public class Wave : MonoBehaviour
     {
         if (glow >= maxGlow && !nextWaveStarting)
         {
+            StartCoroutine(Necromancer());
             nextWaveStarting = true;
             StartCoroutine(NextWave(2)); 
         }
@@ -53,8 +59,9 @@ public class Wave : MonoBehaviour
     void Wave3()
     {
         if (glow >= maxGlow && berserk >= maxBerserk)
-        { 
-        SceneManager.LoadScene(3);
+        {
+            StartCoroutine(Necromancer());
+            SceneManager.LoadScene(3);
         }
     }
 
@@ -72,5 +79,12 @@ public class Wave : MonoBehaviour
         else { }
         nextWaveStarting = false;
         Debug.Log("next wave started");
+    }
+
+    private IEnumerator Necromancer()
+    {
+        necroSpeech.SetActive(true);
+        yield return new WaitForSeconds(speechTime);
+        necroSpeech.SetActive(false);
     }
 }
