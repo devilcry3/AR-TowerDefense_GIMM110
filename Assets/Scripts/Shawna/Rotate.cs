@@ -13,7 +13,7 @@ public class Rotate : MonoBehaviour
 
     private void Start()
     {
-         health = GetComponent<Health>();
+         health = FindObjectOfType<Health>();
     }
 
     private void Update()
