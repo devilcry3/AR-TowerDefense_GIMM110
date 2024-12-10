@@ -21,13 +21,13 @@ public class SpriteRendererWatcher : MonoBehaviour
         {
             if (spriteRenderer.enabled && spriteRenderer.gameObject.activeInHierarchy)
             {
-                Debug.Log($"SpriteRenderer active on {gameObject.name}");
+               // Debug.Log($"SpriteRenderer active on {gameObject.name}");
                 OnSpriteEnabled?.Invoke(gameObject); // Pass the current GameObject
             }
         }
         else
         {
-            Debug.LogWarning($"SpriteRenderer not found on {gameObject.name}");
+           // Debug.LogWarning($"SpriteRenderer not found on {gameObject.name}");
         }
     }
 }

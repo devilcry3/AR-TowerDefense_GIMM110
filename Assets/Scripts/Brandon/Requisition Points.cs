@@ -25,7 +25,7 @@ public class RequisitionPoints : MonoBehaviour
     public void AddPoints(int points)
     {
         recPoints += points;
-        Debug.Log($"Requisition Points updated: {recPoints}");
+       // Debug.Log($"Requisition Points updated: {recPoints}");
     }
 
 }

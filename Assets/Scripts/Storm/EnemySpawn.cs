@@ -127,7 +127,7 @@ public class EnemySpawn : MonoBehaviour
 
     IEnumerator SpawnWave3()
     {
-        while (unitCounter < maxEnemies || unitCounter2 < maxEnemies2)
+        while (unitCounter < maxEnemies)
         {
             if (unitCounter < maxEnemies) // Infinite loop to keep spawning enemies
             {
@@ -155,6 +155,7 @@ public class EnemySpawn : MonoBehaviour
                 berz++;
                 yield return new WaitForSeconds(berzSpawn); // Waits for the specified time before spawning another enemy
             }
+           yield return new WaitForSeconds(1f);
         }
     }
     #endregion

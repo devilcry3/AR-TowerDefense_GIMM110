@@ -63,7 +63,7 @@ public class LobObject : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning($"GameObject {target.name} does not have a HealthComponent!");
+                   // Debug.LogWarning($"GameObject {target.name} does not have a HealthComponent!");
                 }
             }
         }

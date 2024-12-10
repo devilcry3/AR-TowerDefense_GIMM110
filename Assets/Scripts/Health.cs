@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
@@ -21,7 +22,7 @@ public class Health : MonoBehaviour
     EnemySpawn ES;
     RequisitionPoints rP;
     Wave wave;
-
+   
     /* In C# if you do not specify a variable modifier (i.e. public, private, protected), it defaults to private
     The private variable modifier stops other scripts from accessing those variables */
     public int currentHealth;
@@ -42,21 +43,21 @@ public class Health : MonoBehaviour
         wave = FindObjectOfType<Wave>();
         if (ES == null)
         {
-            Debug.LogError("EnemySpawn not found");
+            //Debug.LogError("EnemySpawn not found");
         }
         else
         {
-            Debug.Log($"EnemySpawn found. {ES.enemyUndead.Length} undead enemies");
+            //Debug.Log($"EnemySpawn found. {ES.enemyUndead.Length} undead enemies");
         }
 
         if (ES != null && ES.enemyUndead != null && ES.enemyUndead.Length > 0)
         {
             units = ES.enemyUndead;
-            Debug.Log($"First position: {units[0]?.name}");
+           // Debug.Log($"First position: {units[0]?.name}");
         }
         else
         {
-            Debug.LogError("ES or ES.enemyUndead is null or empty");
+            //Debug.LogError("ES or ES.enemyUndead is null or empty");
         }
         //Comment out this next line for testing Repair Towers
         currentHealth = maxHealth; // Sets the current health to the max health
@@ -88,7 +89,7 @@ public class Health : MonoBehaviour
         // If the health is less than or equal to 0, call the Die method
         if (currentHealth <= 0)
         {
-            Debug.Log($"ES is null: {ES == null}");
+            //Debug.Log($"ES is null: {ES == null}");
 
             if (gameObject.CompareTag("Undead"))
             {
@@ -108,7 +109,7 @@ public class Health : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("process came up null");
+               // Debug.LogWarning("process came up null");
             }
 
             objectsToDisable.Add(gameObject);
@@ -132,10 +133,10 @@ public class Health : MonoBehaviour
         }
 
 
-        if (gameObject.tag == "Player Base") //checks tag for player base to determine if player loss. destroying base objects and giving game over screen
+        if (gameObject.tag == "PlayerBase") //checks tag for player base to determine if player loss. destroying base objects and giving game over screen
         {
             Debug.Log("game over man");
-            gameOver.SetActive(true); ///references EndScreen (canvas) in Unity
+            SceneManager.LoadScene(4); ; ///references EndScreen (canvas) in Unity
             Destroy(gameObject);
         }
 

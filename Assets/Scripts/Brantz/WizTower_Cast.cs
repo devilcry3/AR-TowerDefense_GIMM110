@@ -84,7 +84,7 @@ public class WizTower_Cast : MonoBehaviour
         if (!upgrade)
         {
             upgrade = true;
-            Debug.Log("boost engaged");
+            //Debug.Log("boost engaged");
             StartCoroutine(UpCast());
         }
     }
@@ -95,7 +95,7 @@ public class WizTower_Cast : MonoBehaviour
         yield return new WaitForSeconds(6);  // Ensure this is properly awaited
         upgrade = false;
         fireRate = 2f;
-        Debug.Log("FIREBALL!!!");
+       // Debug.Log("FIREBALL!!!");
         yield break;
     }
 

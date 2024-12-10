@@ -17,7 +17,7 @@ public class EnemyAttack : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the enemy enters the attack zone
-        if (other.CompareTag("Undead"))
+        if (other.gameObject.layer == 8)
         {
             undeadInDangerZone++;
 
@@ -31,7 +31,7 @@ public class EnemyAttack : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         // Stop applying damage when enemy leaves the attack zone
-        if (other.CompareTag("Undead"))
+        if (other.gameObject.layer == 8)
         {
             undeadInDangerZone--;
             if (undeadInDangerZone <= 0)
@@ -49,12 +49,12 @@ public class EnemyAttack : MonoBehaviour
             if (playerHealth != null)
             {
                 int totalDamage = damagePerSecond * undeadInDangerZone;
-                Debug.Log($"Applying damage. Undead count: {undeadInDangerZone}, Total Damage: {totalDamage}");
+                //Debug.Log($"Applying damage. Undead count: {undeadInDangerZone}, Total Damage: {totalDamage}");
                 playerHealth.TakeDamage(totalDamage); // Apply damage based on number of undead
             }
 
             yield return new WaitForSeconds(1f); // Wait for 1s to apply damage again
         }
-        Debug.Log("No undead in Danger Zone. Stopping damage application.");
+        //Debug.Log("No undead in Danger Zone. Stopping damage application.");
     }
 }

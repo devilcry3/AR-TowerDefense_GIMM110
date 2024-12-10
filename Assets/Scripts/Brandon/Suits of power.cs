@@ -59,7 +59,7 @@ public class Suitsofpower : MonoBehaviour
             case 3:
                 SharpEdge(); break;
             default:
-               Debug.Log("switch failed");
+               //Debug.Log("switch failed");
                 break;
         }
     }
@@ -74,7 +74,7 @@ public class Suitsofpower : MonoBehaviour
                 {
                     if (spriteRenderer.enabled && spriteRenderer.gameObject.activeInHierarchy)
                     {
-                        Debug.Log("The SpriteRenderer is active and visible.");
+                        //Debug.Log("The SpriteRenderer is active and visible.");
                     }
                 }
             }
@@ -91,7 +91,7 @@ public class Suitsofpower : MonoBehaviour
                 {
                     if (spriteRenderer.enabled && spriteRenderer.gameObject.activeInHierarchy)
                     {
-                        Debug.Log("The SpriteRenderer is active and visible.");
+                       // Debug.Log("The SpriteRenderer is active and visible.");
                     }
                 }
             }
@@ -108,7 +108,7 @@ public class Suitsofpower : MonoBehaviour
                 {
                     if (spriteRenderer.enabled && spriteRenderer.gameObject.activeInHierarchy)
                     {
-                        Debug.Log("The SpriteRenderer is active and visible.");
+                       // Debug.Log("The SpriteRenderer is active and visible.");
                     }
                 }
             }

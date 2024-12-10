@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class FreezeEnemies : MonoBehaviour
 {
@@ -10,72 +11,53 @@ public class FreezeEnemies : MonoBehaviour
 
 
     private bool isFreezing = false;
-    private void Start()
-    {
 
-    }
-    void Update()
-    {
-        /*  This stuff is all for testing purposes
-        // Check if the player presses the freeze key and has enough coins
-        if (Input.GetKeyDown(KeyCode.L) && !isFreezing)
-        {
-            Debug.Log("L pressed");
-            StartCoroutine(FreezeAllEnemies());
-        }
-        */
-    }
 
     public IEnumerator FreezeAllEnemies()
     {
-        Debug.Log("coroutine");
+        //Debug.Log("coroutine");
         isFreezing = true;
 
-        //GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        List<GameObject> enemies = new List<GameObject>();
-        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+        // Filter GameObjects by their layer and tag in a single LINQ query
+        List<GameObject> enemies = GameObject.FindObjectsOfType<GameObject>()
+                                            .Where(obj => obj.layer == 8)
+                                            .ToList();
 
-        // Filter GameObjects by their layer
-        foreach (GameObject obj in allObjects)
+        //Debug.Log(enemies.Count);
+
+        // Initialize the list of frozen enemies
+        List<EnemyMovement> frozenEnemies = new List<EnemyMovement>();
+
+        // Freeze enemies and populate the frozenEnemies list
+        foreach (var enemy in enemies)
         {
-            if (obj.layer == 8)
-            {
-
-                enemies.Add(obj); // Add to the list
-            }
-        }
-        Debug.Log(enemies.Count);
-
-        List<EnemyMovement> frozenEnemies = new List<EnemyMovement>();  //Un comment to use with EnemyMovement script
-        //List<Waypoint> frozenEnemies = new List<Waypoint>();    //Comment out if using the EnemyMovement script
-
-        foreach (GameObject enemy in enemies)
-        {
-            Debug.Log("foreach");
-            var enemyMovement = enemy.GetComponent<EnemyMovement>();  //Un comment to use with EnemyMovement script
-            //var enemyMovement = enemy.GetComponent<Waypoint>();   //Comment out if using the EnemyMovement script
-
+            var enemyMovement = enemy.GetComponent<EnemyMovement>();
             if (enemyMovement != null)
             {
                 enemyMovement.Freeze();
                 frozenEnemies.Add(enemyMovement);
-                Debug.Log("freeze");
+               // Debug.Log("freeze");
             }
-            if (enemyMovement == null)
-            { Debug.Log("failed"); }
+            else
+            {
+               // Debug.Log("failed");
+            }
         }
 
         yield return new WaitForSeconds(freezeDuration);
 
-        foreach (var frozenEnemy in frozenEnemies)
+        // Unfreeze enemies
+        frozenEnemies.ForEach(frozenEnemy =>
         {
-            if (frozenEnemy != null) // Check to ensure it's valid
+            if (frozenEnemy != null)
             {
                 frozenEnemy.Unfreeze();
-                Debug.Log("unfreeze");
+               // Debug.Log("unfreeze");
             }
-        }
+        });
 
         isFreezing = false;
     }
+
+   
 }

@@ -8,6 +8,8 @@ public class Wave : MonoBehaviour
     Health hp;
     EnemySpawn eS;
     [SerializeField] int wave = 1;
+    [SerializeField] GameObject MainTrack;
+    [SerializeField] GameObject BossTrack;
     int maxTut = 10;
     int maxBerserk = 10;
     int maxGlow = 20;
@@ -54,6 +56,8 @@ public class Wave : MonoBehaviour
             StartCoroutine(Necromancer());
             nextWaveStarting = true;
             StartCoroutine(NextWave(2)); 
+            MainTrack.SetActive(false);
+            BossTrack.SetActive(true);
         }
     }
     void Wave3()
@@ -78,7 +82,7 @@ public class Wave : MonoBehaviour
         else if (x == 2) { wave = 3; maxGlow = 30; }
         else { }
         nextWaveStarting = false;
-        Debug.Log("next wave started");
+        //Debug.Log("next wave started");
     }
 
     private IEnumerator Necromancer()

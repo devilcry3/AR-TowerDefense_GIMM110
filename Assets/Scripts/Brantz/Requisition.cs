@@ -17,10 +17,10 @@ public class Requisition : MonoBehaviour
     RequisitionPoints reqPoints;
 
     //Req Point costs
-    [SerializeField] int warpCost = 5;
-    [SerializeField] int wireCost = 5;
-    [SerializeField] int repairCost = 5;
-    [SerializeField] int freezeCost = 5;
+    [SerializeField] int warpCost = 10;
+    [SerializeField] int wireCost = 15;
+    [SerializeField] int repairCost = 50;
+    [SerializeField] int freezeCost = 20;
 
     private void Start()
     {

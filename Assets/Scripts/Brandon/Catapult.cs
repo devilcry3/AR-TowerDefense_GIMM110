@@ -58,7 +58,7 @@ public class Catapult : MonoBehaviour
                     float yForce = Mathf.Sin(radians) * lobForce;
 
                     rb.AddForce(new Vector2(xForce, yForce), ForceMode2D.Impulse); //Impulse adds the force in a single pulse of force instead of continous
-                    Debug.Log("Fire");
+                   // Debug.Log("Fire");
 
                 }
 
@@ -73,7 +73,7 @@ public class Catapult : MonoBehaviour
         if (!upgrade)
         {
             upgrade = true;
-            Debug.Log("boost engaged");
+            //Debug.Log("boost engaged");
             StartCoroutine(FastCrank());
         }
     }
@@ -84,7 +84,7 @@ public class Catapult : MonoBehaviour
         yield return new WaitForSeconds(6);  // Ensure this is properly awaited
         upgrade = false;
         timeToSpawn = 5;
-        Debug.Log("regular catapult");
+       // Debug.Log("regular catapult");
         yield break;
         }
     

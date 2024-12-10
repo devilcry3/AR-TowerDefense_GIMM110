@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 0}
-  maxHealth: 65
+  maxHealth: 80
   healthSlider: {fileID: 0}
   objectsToDisable: []
   units: []
